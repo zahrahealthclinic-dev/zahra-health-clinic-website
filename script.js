@@ -108,6 +108,15 @@ const serviceDetailsData = {
         duration: '30-45 minutes',
         downtime: 'None'
     },
+    'hair-nails-diseases': {
+        title: 'Hair & Nails Diseases',
+        subtitle: 'Scalp, Hair and Nail Care',
+        icon: 'fa-spa',
+        description: 'Evaluation and management of common hair and nail concerns including hair fall, scalp disorders, fungal nail disease, brittleness, and chronic irritation.',
+        idealFor: 'Hair loss, scalp issues, fungal nails, nail damage',
+        duration: '20-35 minutes',
+        downtime: 'None'
+    },
     dermatology: {
         title: 'Dermatology Consultation',
         subtitle: 'Specialist Clinical Assessment',
