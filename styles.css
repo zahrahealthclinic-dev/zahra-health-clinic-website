@@ -97,7 +97,7 @@ body {
     z-index: 9999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .loading-screen.hidden {
@@ -509,7 +509,7 @@ body {
 }
 
 .hero-text {
-    animation: fadeInLeft 1s ease-out 2.5s backwards;
+    animation: fadeInLeft 0.7s ease-out 0.05s backwards;
 }
 
 .hero-eyebrow {
@@ -612,7 +612,7 @@ body {
 }
 
 .hero-card {
-    animation: fadeInRight 1s ease-out 2.5s backwards;
+    animation: fadeInRight 0.7s ease-out 0.1s backwards;
     perspective: 1000px;
 }
 

@@ -131,16 +131,15 @@ const serviceDetailsData = {
 // ============================================
 // LOADING SCREEN ANIMATION
 // ============================================
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     if (!loadingScreen) return;
 
-    // Intentional premium intro delay requested by user.
     setTimeout(() => {
         loadingScreen.classList.add('hidden');
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 260);
-    }, 600);
+    }, 280);
 });
 
 // ============================================
