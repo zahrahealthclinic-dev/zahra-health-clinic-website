@@ -221,10 +221,35 @@ document.querySelectorAll('.service-link').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
+
         const parentCard = link.closest('.service-card');
         const key = parentCard ? parentCard.getAttribute('data-service') : '';
-        if (!key) return;
-        openServiceModal(key);
+        const bookingSection = document.getElementById('booking');
+        const bookingTreatmentSelect = document.getElementById('treatment');
+
+        const treatmentMap = {
+            'dermal-fillers': 'Filler',
+            'botox': 'Botox',
+            'thread-lifts': 'Thread Lift',
+            'hydrafacial': 'HydraFacial',
+            'chemical-peels': 'Chemical Peels',
+            'rf-microneedling': 'PRP Face & Scalp',
+            'glutathione': 'Profhilo',
+            'laser-treatment': 'Hair Laser Removal',
+            'skincare': 'CO2 Laser Resurfacing',
+            'diabetes': 'Consultation',
+            'hair-nails-diseases': 'Hair & Nails Diseases',
+            'dermatology': 'Consultation'
+        };
+
+        if (bookingTreatmentSelect && key && treatmentMap[key]) {
+            bookingTreatmentSelect.value = treatmentMap[key];
+            bookingTreatmentSelect.dispatchEvent(new Event('change', { bubbles: true }));
+        }
+
+        if (bookingSection) {
+            bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     });
 });
 

@@ -808,6 +808,15 @@ body {
     color: var(--color-dark);
 }
 
+.service-subheading {
+    margin: -4px 0 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
 .service-card p {
     color: var(--color-gray);
     line-height: 1.6;
