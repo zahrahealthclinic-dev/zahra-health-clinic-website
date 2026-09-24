@@ -1,4 +1,4 @@
-// DOM Elements
+// Page ke zaroori elements
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
@@ -129,7 +129,7 @@ const serviceDetailsData = {
 };
 
 // ============================================
-// LOADING SCREEN ANIMATION
+// Loading screen ka animation
 // ============================================
 window.addEventListener('DOMContentLoaded', () => {
     if (!loadingScreen) return;
@@ -143,17 +143,18 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================
-// SCROLL PROGRESS BAR
+// Scroll progress bar update karna
 // ============================================
 window.addEventListener('scroll', () => {
     const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    scrollProgressBar.style.width = scrollPercentage + '%';
+    if (scrollProgressBar) scrollProgressBar.style.width = scrollPercentage + '%';
 });
 
 // ============================================
-// STICKY NAVBAR
+// Navbar ko scroll par sticky rakhna
 // ============================================
 window.addEventListener('scroll', () => {
+    if (!navbar) return;
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
@@ -162,20 +163,23 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// HAMBURGER MENU
+// Hamburger menu ka control
 // ============================================
 function setMenuState(isOpen) {
+    if (!hamburger || !navMenu) return;
     hamburger.classList.toggle('active', isOpen);
     navMenu.classList.toggle('active', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
-hamburger.addEventListener('click', () => {
-    const isOpen = !hamburger.classList.contains('active');
-    setMenuState(isOpen);
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        const isOpen = !hamburger.classList.contains('active');
+        setMenuState(isOpen);
+    });
+}
 
-// Close menu when a link is clicked
+// Link click par mobile menu band karna
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         setMenuState(false);
@@ -183,7 +187,7 @@ navLinks.forEach(link => {
 });
 
 // ============================================
-// SERVICE MODAL
+// Service detail modal
 // ============================================
 function openServiceModal(serviceKey) {
     if (!serviceModal || !serviceDetailsData[serviceKey]) return;
@@ -249,6 +253,8 @@ document.querySelectorAll('.service-link').forEach(link => {
 
         if (bookingSection) {
             bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (key && treatmentMap[key]) {
+            window.location.href = `booking.html?treatment=${encodeURIComponent(treatmentMap[key])}`;
         }
     });
 });
@@ -262,9 +268,10 @@ if (serviceModalBackdrop) {
 }
 
 // ============================================
-// BACK TO TOP BUTTON
+// Wapas upar jane ka button
 // ============================================
 window.addEventListener('scroll', () => {
+    if (!backToTopBtn) return;
     if (window.scrollY > 300) {
         backToTopBtn.classList.add('show');
     } else {
@@ -272,15 +279,17 @@ window.addEventListener('scroll', () => {
     }
 });
 
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
-});
+}
 
 // ============================================
-// SCROLL REVEAL ANIMATIONS
+// Scroll par elements ko reveal karna
 // ============================================
 const autoRevealTargets = document.querySelectorAll(
     'section h1, section h2, section h3, section h4, section p, section li, section .btn, section .service-card, section .doctor-card, section .why-card, section .testimonial-card, section .timing-card, section .contact-card, section .gallery-item, footer .footer-section'
@@ -337,7 +346,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ============================================
-// HERO FORM SUBMISSION
+// Hero form ko WhatsApp par bhejna
 // ============================================
 const heroForm = document.getElementById('heroForm');
 if (heroForm) {
@@ -360,7 +369,7 @@ if (heroForm) {
 }
 
 // ============================================
-// BOOKING FORM SUBMISSION
+// Booking form ko WhatsApp par bhejna
 // ============================================
 const bookingForm = document.getElementById('bookingForm');
 if (bookingForm) {
@@ -388,7 +397,7 @@ if (bookingForm) {
         const whatsappURL = `https://wa.me/923164364811?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappURL, '_blank');
         
-        // Show success animation
+        // Kamyabi ka chhota animation dikhana
         showFormSuccess(bookingForm);
         bookingForm.reset();
     });
@@ -408,7 +417,7 @@ function showFormSuccess(form) {
 }
 
 // ============================================
-// TESTIMONIALS CAROUSEL
+// Testimonials carousel ka control
 // ============================================
 let currentTestimonial = 0;
 const testimonialCards = document.querySelectorAll('.testimonial-card');
@@ -428,33 +437,35 @@ function showTestimonial(index) {
 }
 
 function nextTestimonial() {
+    if (!totalTestimonials) return;
     currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
     showTestimonial(currentTestimonial);
 }
 
 function prevTestimonial() {
+    if (!totalTestimonials) return;
     currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
     showTestimonial(currentTestimonial);
 }
 
-// For mobile/tablet: Show all testimonials in grid, For desktop: Show carousel
+// Mobile par sab reviews, desktop par carousel dikhana
 if (window.innerWidth > 768) {
     showTestimonial(0);
     
     if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
     if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
     
-    // Auto-scroll testimonials every 6 seconds
+    // Har 6 second baad testimonial badalna
     setInterval(nextTestimonial, 6000);
 } else {
-    // Show all testimonials on mobile
+    // Mobile par tamam testimonials dikhana
     testimonialCards.forEach(card => {
         card.style.display = 'block';
     });
 }
 
 // ============================================
-// FAQ ACCORDION
+// FAQ accordion ka control
 // ============================================
 const faqQuestions = document.querySelectorAll('.faq-question');
 
@@ -463,12 +474,12 @@ faqQuestions.forEach(question => {
         const faqItem = question.parentElement;
         const isActive = faqItem.classList.contains('active');
         
-        // Close all other items
+        // Baqi tamam items band karna
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
         
-        // Toggle current item
+        // Current item ko kholna ya band karna
         if (!isActive) {
             faqItem.classList.add('active');
         }
@@ -476,7 +487,7 @@ faqQuestions.forEach(question => {
 });
 
 // ============================================
-// SMOOTH SCROLL FOR ANCHOR LINKS
+// Anchor links par smooth scroll
 // ============================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -495,7 +506,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
-// COUNTER ANIMATION (for stats)
+// Stats numbers ka animation
 // ============================================
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
@@ -512,7 +523,7 @@ function animateCounter(element, target, duration = 2000) {
     }, 16);
 }
 
-// Trigger counter animation when visible
+// Visible hone par counter animation chalana
 const observerOptions = {
     threshold: 0.5,
     rootMargin: '0px'
@@ -535,7 +546,7 @@ document.querySelectorAll('.stat-number').forEach(element => {
 });
 
 // ============================================
-// SERVICE CARD HOVER EFFECTS
+// Service card ka hover effect
 // ============================================
 const serviceCards = document.querySelectorAll('.service-card');
 
@@ -549,10 +560,10 @@ serviceCards.forEach(card => {
     });
 });
 
-// Gallery lightbox is implemented with the premium modal system below.
+// Gallery lightbox neeche diye gaye modal system se chalta hai.
 
 // ============================================
-// CURSOR GLOW EFFECT (Desktop)
+// Desktop par cursor glow effect
 // ============================================
 document.addEventListener('mousemove', (e) => {
     if (window.innerWidth <= 768) {
@@ -588,29 +599,29 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // ============================================
-// PERFORMANCE OPTIMIZATION
+// Performance behtar rakhna
 // ============================================
-// Defer non-critical animations
+// Zaroorat se zyada animations ko baad me chalana
 if ('requestIdleCallback' in window) {
     requestIdleCallback(() => {
-        // Initialize any heavy animations
+        // Heavy animations yahan initialize hoti hain
     });
 }
 
 // ============================================
-// ADDITIONAL POLISH
+// Mazeed visual polish
 // ============================================
 
-// Smooth scroll behavior for all browsers
+// Har browser me smooth scroll rakhna
 document.documentElement.style.scrollBehavior = 'smooth';
 
-// Add page visibility API for optimization
+// Page hide hone par animations halka karna
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-        // Page is hidden, reduce animations
+        // Page hidden hai, animations kam karna
         document.body.style.animation = 'none';
     } else {
-        // Page is visible, resume animations
+        // Page visible hai, animations resume karna
         document.body.style.animation = '';
     }
 });
@@ -622,13 +633,13 @@ if (serviceModalBookBtn) {
     });
 }
 
-// Why card enhancements
+// Why cards ki extra settings
 document.querySelectorAll('.why-card').forEach((card, index) => {
     card.setAttribute('data-aos', 'fade-up');
     card.setAttribute('data-aos-delay', index * 100);
 });
 // ============================================
-// GALLERY MODAL (Premium with Navigation)
+// Gallery modal aur navigation
 // ============================================
 
 const galleryItems = document.querySelectorAll('.gallery-item');
@@ -676,7 +687,7 @@ function prevGallerySlide() {
     updateModalContent();
 }
 
-// Gallery button click handlers
+// Gallery buttons ke click handlers
 galleryItems.forEach((item, index) => {
     const galleryBtn = item.querySelector('.gallery-btn');
     if (galleryBtn) {
@@ -687,7 +698,7 @@ galleryItems.forEach((item, index) => {
     }
 });
 
-// Modal controls
+// Modal ke controls
 if (modalClose) {
     modalClose.addEventListener('click', closeGalleryModal);
 }
@@ -700,7 +711,7 @@ if (modalNext) {
     modalNext.addEventListener('click', nextGallerySlide);
 }
 
-// Close modal when clicking outside
+// Bahar click par modal band karna
 if (galleryModal) {
     galleryModal.addEventListener('click', (e) => {
         if (e.target === galleryModal) {
@@ -709,21 +720,21 @@ if (galleryModal) {
     });
 }
 
-// Keyboard navigation
+// Keyboard se gallery chalana
 document.addEventListener('keydown', (e) => {
     if (serviceModal && serviceModal.classList.contains('active') && e.key === 'Escape') {
         closeServiceModal();
         return;
     }
 
-    if (galleryModal.classList.contains('active')) {
+    if (galleryModal && galleryModal.classList.contains('active')) {
         if (e.key === 'ArrowLeft') prevGallerySlide();
         if (e.key === 'ArrowRight') nextGallerySlide();
         if (e.key === 'Escape') closeGalleryModal();
     }
 });
 
-// Swipe support for mobile
+// Mobile swipe support
 if (galleryModal) {
     galleryModal.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
@@ -748,25 +759,25 @@ function handleSwipe() {
     }
 }
 // ============================================
-// ENHANCED FORM FIELD INTERACTIONS
+// Form fields ki extra interactions
 // ============================================
 
 const formInputs = document.querySelectorAll('.form-group input, .form-group select, .form-group textarea');
 
 formInputs.forEach(input => {
-    // Add focus animation
+    // Focus par animation lagana
     input.addEventListener('focus', function() {
         this.parentElement.classList.add('focused');
     });
     
-    // Remove focus animation
+    // Focus khatam hone par animation hatana
     input.addEventListener('blur', function() {
         if (!this.value) {
             this.parentElement.classList.remove('focused');
         }
     });
     
-    // Add filled state
+    // Filled state update karna
     input.addEventListener('input', function() {
         if (this.value) {
             this.parentElement.classList.add('filled');
@@ -777,6 +788,6 @@ formInputs.forEach(input => {
 });
 
 // ============================================
-// INPUT VALIDATION & FORMATTING
+// Input validation aur formatting
 // ============================================
-// Gallery click handlers - see new GALLERY MODAL section below for enhanced version
+// Gallery handlers neeche wale modal section me maujood hain

@@ -2,11 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /private/
 Disallow: /admin/
-Disallow: *.css$
-Disallow: *.js$
-Disallow: *.jpg$
-Disallow: *.jpeg$
-Disallow: *.png$
 Allow: /assets/
 
 # Sitemap location for search engines

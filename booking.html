@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book a dermatology, laser or aesthetic consultation at Zahra Health Clinic.">
+    <link rel="canonical" href="https://www.zahraskinlaserclinicbydrhina.com/booking.html">
+    <title>Book Appointment | Zahra Health Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="scroll-progress-bar"></div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container"><a class="nav-logo" href="index.html">
+                <div class="logo-icon">Z</div>
+                <div class="clinic-name-wrap"><span class="clinic-name-main">Zahra Health Clinic</span></div>
+            </a><button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu"
+                aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                <li><a href="why-us.html" class="nav-link">Why Choose Us</a></li>
+                <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="page-main">
+        <section class="page-hero">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Book Your Consultation</h1>
+                    <p class="section-subtitle">Share your details and our team will coordinate your appointment.</p>
+                </div>
+            </div>
+        </section>
+        <section class="booking" id="booking">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <div class="booking-content">
+                        <form class="booking-form" id="bookingForm">
+                            <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name"
+                                    name="name" placeholder="Your Full Name" required></div>
+                            <div class="form-group"><label for="phone">Phone Number *</label><input type="tel"
+                                    id="phone" name="phone" placeholder="0300 0000000" required></div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="treatment">Select Treatment *</label>
+                                    <div class="premium-select-wrap"><select id="treatment" name="treatment"
+                                            class="premium-select" required>
+                                            <option value="">Select Your Treatment</option>
+                                            <option value="Consultation">Consultation</option>
+                                            <option value="HydraFacial">HydraFacial</option>
+                                            <option value="Hair Laser Removal">Hair Laser Removal</option>
+                                            <option value="Thread Lift">Thread Lift</option>
+                                            <option value="Botox">Botox</option>
+                                            <option value="Filler">Filler</option>
+                                            <option value="Profhilo">Profhilo</option>
+                                            <option value="CO2 Laser Resurfacing">CO2 Laser Resurfacing</option>
+                                            <option value="Acne Scar Treatment">Acne Scar Treatment</option>
+                                            <option value="PRP Face &amp; Scalp">PRP Face &amp; Scalp</option>
+                                            <option value="Chemical Peels">Chemical Peels</option>
+                                            <option value="Hair &amp; Nails Diseases">Hair &amp; Nails Diseases</option>
+                                        </select></div>
+                                </div>
+                                <div class="form-group"><label for="doctor">Preferred Doctor</label>
+                                    <div class="premium-select-wrap"><select id="doctor" name="doctor"
+                                            class="premium-select">
+                                            <option value="">Any Available Specialist</option>
+                                            <option value="Dr. Hina Wazir">Dr. Hina Wazir</option>
+                                            <option value="Dr. Ahmed Khalil">Dr. Ahmed Khalil</option>
+                                            <option value="Dr. Saher Fatima">Dr. Saher Fatima</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group"><label for="date">Preferred Date</label><input type="date"
+                                        id="date" name="date"></div>
+                                <div class="form-group"><label for="time">Preferred Time</label>
+                                    <div class="premium-select-wrap"><select id="time" name="time"
+                                            class="premium-select">
+                                            <option value="">Select Preferred Time</option>
+                                            <option value="5:30 PM - 6:00 PM">5:30 PM - 6:00 PM</option>
+                                            <option value="6:00 PM - 6:30 PM">6:00 PM - 6:30 PM</option>
+                                            <option value="6:30 PM - 7:00 PM">6:30 PM - 7:00 PM</option>
+                                            <option value="7:00 PM - 7:30 PM">7:00 PM - 7:30 PM</option>
+                                            <option value="7:30 PM - 8:00 PM">7:30 PM - 8:00 PM</option>
+                                            <option value="8:00 PM - 8:30 PM">8:00 PM - 8:30 PM</option>
+                                        </select></div>
+                                </div>
+                            </div>
+                            <div class="form-group"><label for="message">Message / Additional Notes</label><textarea
+                                    id="message" name="message" placeholder="Share your concerns or treatment goals..."
+                                    rows="4"></textarea></div>
+                            <div class="form-note">
+                                <p><i class="fas fa-info-circle"></i> Clinic timings: Monday to Friday, 5:30 PM - 8:30
+                                    PM</p>
+                            </div><button type="submit" class="btn btn-primary btn-large"><i
+                                    class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                        </form>
+                    </div>
+                    <div class="booking-info">
+                        <h3>Premium Benefits</h3>
+                        <ul class="benefits-list">
+                            <li><i class="fas fa-check"></i> Free Initial Consultation</li>
+                            <li><i class="fas fa-check"></i> Personalized Treatment Plan</li>
+                            <li><i class="fas fa-check"></i> Expert Medical Guidance</li>
+                            <li><i class="fas fa-check"></i> Advanced Laser Technology</li>
+                            <li><i class="fas fa-check"></i> Aftercare Support</li>
+                        </ul>
+                        <div class="emergency-contact">
+                            <h4>Quick Contact</h4>
+                            <p><strong>Call:</strong> <a href="tel:03164364811">0316 4364811</a></p>
+                            <p><strong>WhatsApp:</strong> <a href="https://wa.me/923164364811" target="_blank"
+                                    rel="noopener noreferrer">0316 4364811</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Zahra Health Clinic</h4>
+                    <p>Premium aesthetic and dermatological care in Bahria Town Karachi.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="doctors.html">Doctors</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><a href="tel:03164364811">0316 4364811</a></p>
+                    <p><a href="mailto:zahrahealthclinic@gmail.com">zahrahealthclinic@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zahra Health Clinic by Dr. Hina. All rights reserved.</p>
+            </div>
+        </div>
+    </footer><a href="https://wa.me/923164364811" target="_blank" rel="noopener noreferrer" class="whatsapp-float"><i
+            class="fab fa-whatsapp"></i></a><button class="back-to-top" id="backToTop" aria-label="Back to top"><i
+            class="fas fa-arrow-up"></i></button>
+    <script src="script.js" defer></script>
+    <script>const treatment = new URLSearchParams(window.location.search).get('treatment'); if (treatment) document.getElementById('treatment').value = treatment;</script>
+</body>
+
+</html>
