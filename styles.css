@@ -111,10 +111,17 @@ body {
 }
 
 .clinic-logo-loader {
-    width: 120px;
-    height: 120px;
+    width: 270px;
+    height: 148px;
     margin: 0 auto 30px;
     animation: bounceIn 1s ease-out;
+}
+
+.logo-image-loader {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
 }
 
 .logo-svg {
@@ -211,6 +218,14 @@ body {
     font-weight: 700;
     color: var(--color-dark);
     font-family: var(--font-heading);
+}
+
+.site-logo {
+    width: 182px;
+    height: 64px;
+    display: block;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .clinic-name-wrap {
@@ -758,6 +773,80 @@ body {
     gap: 30px;
 }
 
+.care-focus-list {
+    max-width: 980px;
+    margin: 0 auto 42px;
+    padding: 24px 30px 24px 52px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 34px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(192, 154, 95, 0.2);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+}
+
+.care-focus-list li {
+    color: var(--color-gray);
+    line-height: 1.6;
+}
+
+.personalized-care {
+    padding: 100px 30px;
+    background: var(--color-white);
+}
+
+.personalized-care-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 56px;
+    align-items: start;
+}
+
+.section-kicker {
+    margin-bottom: 14px;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.personalized-care-copy .section-title {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.personalized-care-copy p:not(.section-kicker) {
+    margin-bottom: 18px;
+    color: var(--color-gray);
+    line-height: 1.8;
+}
+
+.personalized-care-services {
+    padding: 34px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(243, 236, 228, 0.82));
+    border: 1px solid rgba(192, 154, 95, 0.2);
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+}
+
+.personalized-care-services h3 {
+    margin-bottom: 22px;
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+}
+
+.personalized-care-services ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 28px;
+    padding-left: 20px;
+    color: var(--color-gray);
+    line-height: 1.5;
+}
+
 .service-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(243, 236, 228, 0.78));
     backdrop-filter: blur(12px);
@@ -770,6 +859,37 @@ body {
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
+}
+
+.service-category-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-category-card .service-icon,
+.service-category-card h3 {
+    text-align: center;
+}
+
+.service-category-card .service-icon {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-category-list {
+    margin: 20px 0 24px;
+    padding-left: 22px;
+    color: var(--color-gray);
+    line-height: 1.7;
+}
+
+.service-category-list li::marker {
+    color: var(--color-primary);
+}
+
+.service-category-card .service-link {
+    margin-top: auto;
 }
 
 .service-card::before {
@@ -1107,6 +1227,36 @@ body {
     font-size: 14px;
 }
 
+.doctor-description {
+    color: var(--color-gray);
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.doctor-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+#doctors .doctor-card {
+    display: flex;
+    flex-direction: column;
+}
+
+#doctors .doctor-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#doctors .doctor-actions .btn {
+    flex: 1 1 150px;
+}
+
 .doctor-details {
     font-size: 14px;
     color: var(--color-gray);
@@ -1126,6 +1276,76 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     text-align: center;
+}
+
+.doctors-page .doctors-grid {
+    align-items: stretch;
+}
+
+.doctors-page .doctor-card {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.doctors-page .doctor-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.doctors-page .doctor-stats {
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.doctors-page .doctor-guide,
+.doctors-page .doctor-laser,
+.doctors-page .doctor-visit,
+.doctors-page .doctor-trust,
+.doctors-page .doctor-faq {
+    max-width: 1040px;
+    margin: 76px auto 0;
+    padding: 38px 42px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.doctors-page .doctor-guide .section-title,
+.doctors-page .doctor-laser .section-title,
+.doctors-page .doctor-visit .section-title,
+.doctors-page .doctor-trust .section-title,
+.doctors-page .doctor-faq .section-title {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.doctors-page .doctor-guide .section-subtitle,
+.doctors-page .doctor-laser .section-subtitle,
+.doctors-page .doctor-visit .section-subtitle,
+.doctors-page .doctor-trust .section-subtitle,
+.doctors-page .doctor-faq .section-subtitle {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+.doctors-page .doctor-laser h3 {
+    margin-top: 24px;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+}
+
+.doctors-page .doctor-visit .section-subtitle,
+.doctors-page .doctor-trust .section-subtitle,
+.doctors-page .doctor-faq .section-subtitle {
+    padding: 12px 16px;
+    border-left: 3px solid var(--color-accent);
+    background: rgba(243, 236, 228, 0.5);
 }
 
 .stat {
@@ -2026,15 +2246,37 @@ body {
     text-decoration: underline;
 }
 
+.contact-page .contact-intro {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-page .contact-grid {
+    align-items: stretch;
+}
+
+.contact-page .contact-card {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .map-container {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
+    border: 1px solid rgba(192, 154, 95, 0.22);
 }
 
 .map-container iframe {
     width: 100%;
     height: 400px;
+}
+
+.contact-page .contact-cta {
+    margin-top: 0;
 }
 
 /* ============================================
@@ -2429,6 +2671,11 @@ body {
         flex-wrap: wrap;
     }
 
+    .site-logo {
+        width: 158px;
+        height: 50px;
+    }
+
     .logo-icon {
         width: 34px;
         height: 34px;
@@ -2595,6 +2842,17 @@ body {
         gap: 40px;
     }
 
+    .footer-logo {
+        width: 190px;
+        height: 78px;
+        display: block;
+        margin-bottom: 18px;
+        object-fit: contain;
+        object-position: left center;
+        background: rgba(255, 255, 255, 0.96);
+        border-radius: 10px;
+    }
+
     .hero-background::before {
         background: linear-gradient(135deg, #f2e6df 0%, #e8d4c9 50%, #dfc1b4 100%);
     }
@@ -2618,9 +2876,32 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .care-focus-list,
+    .personalized-care-services ul {
+        grid-template-columns: 1fr;
+    }
+
+    .personalized-care-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+
+    .personalized-care-copy .section-title {
+        text-align: center;
+    }
+
     /* Doctors section */
     .doctors-grid {
         grid-template-columns: 1fr;
+    }
+
+    .doctors-page .doctor-guide,
+    .doctors-page .doctor-laser,
+    .doctors-page .doctor-visit,
+    .doctors-page .doctor-trust,
+    .doctors-page .doctor-faq {
+        margin-top: 42px;
+        padding: 26px 22px;
     }
 
     .doctor-card {
@@ -2701,7 +2982,7 @@ body {
     }
 
     /* Sections ki padding */
-    .hero, .services, .doctors, .why-us, .booking, .testimonials, 
+    .hero, .services, .personalized-care, .doctors, .why-us, .booking, .testimonials, 
     .timings, .gallery, .contact, .faq, .footer {
         padding: 60px 20px;
     }
@@ -2811,6 +3092,16 @@ body {
         width: 30px;
         height: 30px;
         font-size: 14px;
+    }
+
+    .site-logo {
+        width: 138px;
+        height: 44px;
+    }
+
+    .footer-logo {
+        width: 178px;
+        height: 72px;
     }
 
     .clinic-name {
@@ -3214,6 +3505,577 @@ body {
 }
 
 /* Print ki styling */
+.reviews-page .testimonials-carousel {
+    align-items: stretch;
+}
+
+.reviews-page .testimonials-carousel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.reviews-page .testimonial-card {
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews-page .testimonial-title {
+    margin-top: auto;
+}
+
+.reviews-page main a:not(.btn):not(.nav-link):not(.nav-cta):not(.service-link):not(.whatsapp-float) {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.reviews-page main a:not(.btn):not(.nav-link):not(.nav-cta):not(.service-link):not(.whatsapp-float):hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+.reviews-page .reviews-treatments,
+.reviews-page .reviews-trust {
+    max-width: 1180px;
+    margin: 72px auto 0;
+    padding: 38px 42px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(243, 236, 228, 0.7));
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.reviews-page .reviews-treatments .section-title,
+.reviews-page .reviews-trust .section-title {
+    grid-column: 1 / -1;
+    margin-bottom: 12px;
+}
+
+.reviews-page .reviews-treatments > .section-subtitle,
+.reviews-page .reviews-trust > .section-subtitle {
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+}
+
+.review-treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.review-info-card,
+.review-trust-grid p {
+    margin: 0;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.84);
+    border: 1px solid rgba(192, 154, 95, 0.18);
+    border-radius: 13px;
+    box-shadow: 0 8px 20px rgba(21, 21, 35, 0.05);
+}
+
+.review-info-card h3 {
+    margin-bottom: 12px;
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    font-size: 20px;
+}
+
+.review-info-card p,
+.review-trust-grid p {
+    color: var(--color-gray);
+    line-height: 1.7;
+}
+
+.review-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.review-trust-grid strong {
+    color: var(--color-primary);
+}
+
+.reviews-trust-link {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.why-us-page .why-us-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.why-us-page .why-card {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.why-us-page .why-card p:last-child {
+    margin-top: 0;
+}
+
+.faq-page .faq-container {
+    max-width: 900px;
+}
+
+.faq-page .faq-question {
+    padding: 22px 24px;
+}
+
+.generated-faq-item {
+    margin: 0;
+}
+
+.generated-faq-item .faq-question {
+    min-height: 68px;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(192, 154, 95, 0.16);
+    border-radius: 12px;
+    text-align: left;
+}
+
+.generated-faq-item .faq-question i {
+    font-size: 14px;
+}
+
+.generated-faq-item.active .faq-question {
+    border-radius: 12px 12px 0 0;
+}
+
+.generated-faq-item .faq-answer {
+    border: 1px solid rgba(192, 154, 95, 0.16);
+    border-top: 0;
+}
+
+a[href^="tel:"]:not(.btn),
+a[href^="mailto:"]:not(.btn),
+a[href^="https://wa.me/"]:not(.btn):not(.whatsapp-float) {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a[href^="tel:"]:not(.btn):hover,
+a[href^="mailto:"]:not(.btn):hover,
+a[href^="https://wa.me/"]:not(.btn):not(.whatsapp-float):hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+.why-us-page .why-intro {
+    max-width: 980px;
+    margin: 0 auto 54px;
+}
+
+.why-us-page .why-hero-kicker {
+    margin-bottom: 14px;
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.why-us-page main a:not(.btn):not(.nav-link):not(.nav-cta):not(.whatsapp-float) {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.why-us-page main a:not(.btn):not(.nav-link):not(.nav-cta):not(.whatsapp-float):hover {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+}
+
+.why-us-page .why-hero-points {
+    max-width: 720px;
+    margin: 28px 0 30px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.why-us-page .why-hero-points span {
+    min-height: 72px;
+    padding: 14px 12px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--color-dark);
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(192, 154, 95, 0.24);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.why-us-page .why-hero-points i {
+    color: var(--color-primary);
+    font-size: 20px;
+}
+
+.why-us-page .why-overview {
+    margin-bottom: 28px;
+}
+
+.why-us-page .page-hero {
+    padding: 92px 30px 58px;
+    background:
+        radial-gradient(circle at 82% 18%, rgba(192, 154, 95, 0.16) 0%, transparent 30%),
+        linear-gradient(135deg, #f8f3ee 0%, #fff9f4 100%);
+}
+
+.why-us-page .page-hero .section-header {
+    max-width: 920px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.why-us-page .page-hero .section-title {
+    max-width: 780px;
+    font-size: clamp(38px, 5vw, 68px);
+}
+
+.why-us-page .why-us {
+    padding-top: 72px;
+}
+
+.why-us-page .why-overview .section-title {
+    font-size: clamp(28px, 3.5vw, 44px);
+}
+
+.why-us-page .why-us-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.why-us-page .why-card {
+    min-height: 270px;
+    padding: 28px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(192, 154, 95, 0.28);
+    box-shadow: 0 12px 30px rgba(21, 21, 35, 0.08);
+}
+
+.why-us-page .why-card:nth-child(even) {
+    background: linear-gradient(145deg, rgba(243, 236, 228, 0.9), rgba(255, 255, 255, 0.82));
+}
+
+.why-us-page .why-icon {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: rgba(142, 31, 63, 0.08);
+    font-size: 28px;
+}
+
+.why-us-page .why-card h3 {
+    font-size: 20px;
+}
+
+.why-us-page .why-card:nth-child(2) {
+    grid-column: span 2;
+}
+
+.why-us-page .why-card {
+    min-height: 0;
+}
+
+.why-us-page .why-card p:last-child {
+    margin-top: 0;
+}
+
+.why-process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.why-process-step {
+    min-height: 150px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.why-process-step i {
+    color: var(--color-primary);
+    font-size: 24px;
+}
+
+.why-process-step strong {
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+}
+
+.why-process-step span {
+    color: var(--color-gray);
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.why-us-page .why-assessment,
+.why-us-page .why-patient-care,
+.why-us-page .why-clinic,
+.why-us-page .why-personalized,
+.why-us-page .why-approach,
+.why-us-page .why-faq {
+    max-width: 1040px;
+    margin: 58px auto 0;
+    padding: 34px 40px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.why-us-page .why-assessment .section-title,
+.why-us-page .why-patient-care .section-title,
+.why-us-page .why-clinic .section-title,
+.why-us-page .why-personalized .section-title,
+.why-us-page .why-approach .section-title,
+.why-us-page .why-faq .section-title {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.why-us-page .why-assessment .section-subtitle,
+.why-us-page .why-patient-care .section-subtitle,
+.why-us-page .why-clinic .section-subtitle,
+.why-us-page .why-personalized .section-subtitle,
+.why-us-page .why-approach .section-subtitle,
+.why-us-page .why-faq .section-subtitle {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 12px 16px;
+    border-left: 3px solid var(--color-accent);
+    background: rgba(243, 236, 228, 0.5);
+    text-align: left;
+}
+
+.faq-page .faq-intro {
+    max-width: 820px;
+    margin: 0 auto 36px;
+    padding: 28px 34px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-page .faq-intro .section-title {
+    margin-bottom: 12px;
+}
+
+#faq .faq-container,
+.faq-page .faq-container {
+    max-width: 1120px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+}
+
+#faq .faq-item,
+.faq-page .faq-item {
+    margin-bottom: 0;
+    border: 1px solid rgba(192, 154, 95, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(21, 21, 35, 0.06);
+}
+
+#faq .faq-question,
+.faq-page .faq-question {
+    min-height: 68px;
+    background: rgba(255, 255, 255, 0.86);
+    border-radius: 14px;
+}
+
+.reviews-page .reviews-faq,
+.doctors-page .doctor-questions,
+.services-faq,
+.why-us-page .why-faq {
+    max-width: 1120px;
+    margin: 72px auto 0;
+    padding: 34px 40px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(243, 236, 228, 0.68));
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+.reviews-page .reviews-faq .section-title,
+.doctors-page .doctor-questions .section-title,
+.services-faq .section-title,
+.why-us-page .why-faq .section-title,
+.reviews-page .reviews-faq > p:first-of-type,
+.doctors-page .doctor-questions > p:first-of-type,
+.services-faq .services-faq-intro {
+    grid-column: 1 / -1;
+}
+
+.reviews-page .reviews-faq > p:not(:first-of-type),
+.doctors-page .doctor-questions > p:not(:first-of-type),
+.why-us-page .why-faq > p,
+.services-question-grid p {
+    margin: 0;
+    padding: 18px 20px;
+    color: var(--color-dark);
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(192, 154, 95, 0.16);
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(21, 21, 35, 0.04);
+    line-height: 1.6;
+}
+
+.reviews-page .reviews-faq > p:not(:first-of-type) strong,
+.doctors-page .doctor-questions > p:not(:first-of-type) strong,
+.why-us-page .why-faq > p strong {
+    color: var(--color-primary);
+}
+
+.services-question-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 18px;
+}
+
+.services-question-grid p a {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.gallery-page .gallery-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.gallery-page .gallery-item {
+    border: 1px solid rgba(192, 154, 95, 0.22);
+}
+
+.booking-page .booking-wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.booking-page .booking-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .reviews-page .testimonial-card,
+    .why-us-page .why-card {
+        min-height: 0;
+    }
+
+    .reviews-page .testimonials-carousel {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-page .reviews-treatments,
+    .reviews-page .reviews-trust {
+        padding: 24px 20px;
+    }
+
+    .review-treatment-grid,
+    .review-trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-us-page .why-card:nth-child(2) {
+        grid-column: auto;
+    }
+
+    .faq-page .faq-question {
+        padding: 18px;
+        text-align: left;
+    }
+
+    #faq .faq-container,
+    .faq-page .faq-container,
+    .reviews-page .reviews-faq,
+    .doctors-page .doctor-questions,
+    .services-faq,
+    .why-us-page .why-faq,
+    .services-question-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-page .reviews-faq,
+    .doctors-page .doctor-questions,
+    .services-faq,
+    .why-us-page .why-faq {
+        padding: 24px 20px;
+    }
+
+    .why-us-page .page-hero {
+        padding: 70px 20px 42px;
+    }
+
+    .why-us-page .page-hero .section-header {
+        text-align: center;
+    }
+
+    .why-us-page .page-hero .section-title {
+        font-size: clamp(32px, 9vw, 48px);
+    }
+
+    .why-us-page .why-hero-points {
+        grid-template-columns: 1fr;
+    }
+
+    .why-us-page .why-us-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-us-page .why-card {
+        min-height: 0;
+    }
+
+    .why-process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-us-page .why-assessment,
+    .why-us-page .why-patient-care,
+    .why-us-page .why-clinic,
+    .why-us-page .why-personalized,
+    .why-us-page .why-approach,
+    .why-us-page .why-faq,
+    .faq-page .faq-intro {
+        margin-top: 34px;
+        padding: 24px 20px;
+    }
+}
+
 @media print {
     .navbar, .whatsapp-float, .back-to-top, .cta-banner {
         display: none;

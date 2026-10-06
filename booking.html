@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book a dermatology, laser or aesthetic consultation at Zahra Health Clinic.">
+    <meta name="description" content="Book your consultation at Zahra Health Clinic in Bahria Town Karachi for personalized dermatology, laser and aesthetic care.">
     <link rel="canonical" href="https://www.zahraskinlaserclinicbydrhina.com/booking.html">
-    <title>Book Appointment | Zahra Health Clinic</title>
+    <link rel="icon" type="image/png" href="assets/logo/zahra-clinic-logo.png">
+    <title>Book Your Consultation Today | Zahra Health Clinic Karachi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
@@ -17,10 +18,16 @@
 
 <body>
     <div class="scroll-progress-bar"></div>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-container">
+            <div class="clinic-logo-loader"><img class="logo-image-loader" src="assets/logo/zahra-clinic-logo.png" alt="Zahra's Diabetic &amp; Aesthetic Clinic"></div>
+            <p class="loading-text">Zahra Health Clinic</p>
+            <div class="loading-dots"><span></span><span></span><span></span></div>
+        </div>
+    </div>
     <nav class="navbar" id="navbar">
         <div class="nav-container"><a class="nav-logo" href="index.html">
-                <div class="logo-icon">Z</div>
-                <div class="clinic-name-wrap"><span class="clinic-name-main">Zahra Health Clinic</span></div>
+                <img class="site-logo" src="assets/logo/zahra-clinic-logo.png" alt="Zahra's Diabetic &amp; Aesthetic Clinic">
             </a><button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu"
                 aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
             <ul class="nav-menu" id="navMenu">
@@ -34,12 +41,12 @@
             </ul>
         </div>
     </nav>
-    <main class="page-main">
+    <main class="page-main booking-page">
         <section class="page-hero">
             <div class="container">
                 <div class="section-header">
-                    <h1 class="section-title">Book Your Consultation</h1>
-                    <p class="section-subtitle">Share your details and our team will coordinate your appointment.</p>
+                    <h1 class="section-title">Book Your Consultation Today!</h1>
+                    <p class="section-subtitle">Take the first step towards healthier, clearer and more confident skin. Our expert team is here to help.</p>
                 </div>
             </div>
         </section>
@@ -47,16 +54,18 @@
             <div class="container">
                 <div class="booking-wrapper">
                     <div class="booking-content">
+                        <h2>Quick Booking</h2>
+                        <p>Fill in your details and we'll get back to you soon.</p>
                         <form class="booking-form" id="bookingForm">
-                            <div class="form-group"><label for="name">Full Name *</label><input type="text" id="name"
-                                    name="name" placeholder="Your Full Name" required></div>
+                            <div class="form-group"><label for="name">Your Name *</label><input type="text" id="name"
+                                name="name" placeholder="Your Name" required></div>
                             <div class="form-group"><label for="phone">Phone Number *</label><input type="tel"
-                                    id="phone" name="phone" placeholder="0300 0000000" required></div>
+                                id="phone" name="phone" placeholder="Phone Number" required></div>
                             <div class="form-row">
                                 <div class="form-group"><label for="treatment">Select Treatment *</label>
                                     <div class="premium-select-wrap"><select id="treatment" name="treatment"
                                             class="premium-select" required>
-                                            <option value="">Select Your Treatment</option>
+                                            <option value="">Select Treatment *</option>
                                             <option value="Consultation">Consultation</option>
                                             <option value="HydraFacial">HydraFacial</option>
                                             <option value="Hair Laser Removal">Hair Laser Removal</option>
@@ -69,12 +78,18 @@
                                             <option value="PRP Face &amp; Scalp">PRP Face &amp; Scalp</option>
                                             <option value="Chemical Peels">Chemical Peels</option>
                                             <option value="Hair &amp; Nails Diseases">Hair &amp; Nails Diseases</option>
+                                            <option value="Microneedling">Microneedling</option>
+                                            <option value="PDRN and Polynucleotide">PDRN and Polynucleotide</option>
+                                            <option value="Exosomes">Exosomes</option>
+                                            <option value="Mole Removal">Mole Removal</option>
+                                            <option value="Skin Tags Removal">Skin Tags Removal</option>
+                                            <option value="Diabetes Consultation">Diabetes Consultation</option>
                                         </select></div>
                                 </div>
                                 <div class="form-group"><label for="doctor">Preferred Doctor</label>
-                                    <div class="premium-select-wrap"><select id="doctor" name="doctor"
+                                        <div class="premium-select-wrap"><select id="doctor" name="doctor"
                                             class="premium-select">
-                                            <option value="">Any Available Specialist</option>
+                                            <option value="">Preferred Doctor (Optional)</option>
                                             <option value="Dr. Hina Wazir">Dr. Hina Wazir</option>
                                             <option value="Dr. Ahmed Khalil">Dr. Ahmed Khalil</option>
                                             <option value="Dr. Saher Fatima">Dr. Saher Fatima</option>
@@ -97,24 +112,24 @@
                                         </select></div>
                                 </div>
                             </div>
-                            <div class="form-group"><label for="message">Message / Additional Notes</label><textarea
-                                    id="message" name="message" placeholder="Share your concerns or treatment goals..."
+                                <div class="form-group"><label for="message">Skin Concern or Message</label><textarea
+                                    id="message" name="message" placeholder="Tell us about your skin concerns or treatment goals..."
                                     rows="4"></textarea></div>
                             <div class="form-note">
                                 <p><i class="fas fa-info-circle"></i> Clinic timings: Monday to Friday, 5:30 PM - 8:30
                                     PM</p>
                             </div><button type="submit" class="btn btn-primary btn-large"><i
-                                    class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                                    class="fab fa-whatsapp"></i> Send WhatsApp Message</button>
                         </form>
                     </div>
                     <div class="booking-info">
-                        <h3>Premium Benefits</h3>
+                        <h3>Expert Guidance</h3>
                         <ul class="benefits-list">
-                            <li><i class="fas fa-check"></i> Free Initial Consultation</li>
-                            <li><i class="fas fa-check"></i> Personalized Treatment Plan</li>
-                            <li><i class="fas fa-check"></i> Expert Medical Guidance</li>
-                            <li><i class="fas fa-check"></i> Advanced Laser Technology</li>
-                            <li><i class="fas fa-check"></i> Aftercare Support</li>
+                            <li><i class="fas fa-check"></i> Personalized Treatment Plans</li>
+                            <li><i class="fas fa-check"></i> Doctor-Led Care</li>
+                            <li><i class="fas fa-check"></i> Advanced Aesthetic Care</li>
+                            <li><i class="fas fa-check"></i> Clear Treatment Guidance</li>
+                            <li><i class="fas fa-check"></i> Professional Aftercare Support</li>
                         </ul>
                         <div class="emergency-contact">
                             <h4>Quick Contact</h4>

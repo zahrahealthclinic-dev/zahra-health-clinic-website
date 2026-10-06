@@ -45,6 +45,24 @@ const serviceDetailsData = {
         duration: '45-60 minutes',
         downtime: '2-5 days mild swelling can occur'
     },
+    biostimulators: {
+        title: 'Sculptra & Radiesse Biostimulators',
+        subtitle: 'Gradual Collagen Support',
+        icon: 'fa-arrows-to-circle',
+        description: 'Biostimulator treatments support your skin\'s natural collagen rebuilding so firmness and contour improve gradually.',
+        idealFor: 'Early to moderate laxity and lost firmness',
+        duration: '30-45 minutes',
+        downtime: 'Minimal'
+    },
+    'fat-dissolving': {
+        title: 'Fat Dissolving Injection',
+        subtitle: 'Targeted Contouring Support',
+        icon: 'fa-compress',
+        description: 'A targeted treatment for small, stubborn pockets of fat such as under the chin and along the jawline.',
+        idealFor: 'Small localised fat deposits',
+        duration: '20-30 minutes',
+        downtime: 'Swelling or tenderness for a few days'
+    },
     hydrafacial: {
         title: 'HydraFacial',
         subtitle: 'Deep Cleanse + Hydration',
@@ -62,6 +80,24 @@ const serviceDetailsData = {
         idealFor: 'Pigmentation, acne marks, uneven tone',
         duration: '20-40 minutes',
         downtime: 'Light peeling for a few days'
+    },
+    exosomes: {
+        title: 'Exosomes',
+        subtitle: 'Regenerative Skin Support',
+        icon: 'fa-dna',
+        description: 'A regenerative therapy that supports healing and glow, often paired with microneedling.',
+        idealFor: 'Post-procedure recovery, dull or damaged skin',
+        duration: '30-45 minutes',
+        downtime: 'Minimal'
+    },
+    'hands-feet-rejuvenation': {
+        title: 'Hands & Feet Rejuvenation',
+        subtitle: 'Texture, Volume and Tone Care',
+        icon: 'fa-hand-sparkles',
+        description: 'A tailored approach to improve texture, volume and tone so hands and feet look as cared for as the face.',
+        idealFor: 'Thin, crepey or pigmented skin',
+        duration: '30-60 minutes',
+        downtime: 'Usually minimal'
     },
     'rf-microneedling': {
         title: 'PRP Face & Scalp',
@@ -115,6 +151,42 @@ const serviceDetailsData = {
         description: 'Evaluation and management of common hair and nail concerns including hair fall, scalp disorders, fungal nail disease, brittleness, and chronic irritation.',
         idealFor: 'Hair loss, scalp issues, fungal nails, nail damage',
         duration: '20-35 minutes',
+        downtime: 'None'
+    },
+    'stretch-marks': {
+        title: 'Stretch Marks Treatment',
+        subtitle: 'Body Texture Improvement',
+        icon: 'fa-wave-square',
+        description: 'Personalized plans to soften the look of stretch marks and improve body skin texture.',
+        idealFor: 'Stretch marks on the body',
+        duration: '30-60 minutes',
+        downtime: 'Depends on the method'
+    },
+    'mole-removal': {
+        title: 'Mole Removal',
+        subtitle: 'Careful Cosmetic Assessment',
+        icon: 'fa-circle-dot',
+        description: 'Careful removal with attention to safety. Any mole that looks unusual is assessed properly first.',
+        idealFor: 'Cosmetic or irritating moles',
+        duration: '20-40 minutes',
+        downtime: 'Small wound heals over days to weeks'
+    },
+    'skin-tags-removal': {
+        title: 'Skin Tags Removal',
+        subtitle: 'Minor Skin Procedure',
+        icon: 'fa-tag',
+        description: 'Quick removal of skin tags on the neck, eyelids, underarms and other areas.',
+        idealFor: 'Skin tags that rub or bother you',
+        duration: '15-30 minutes',
+        downtime: 'Minimal'
+    },
+    'antioxidant-injections': {
+        title: 'Antioxidant Injections',
+        subtitle: 'Radiance and Wellness Support',
+        icon: 'fa-syringe',
+        description: 'Antioxidant injections and drips that support skin radiance and general wellness.',
+        idealFor: 'Dull skin and low-energy periods',
+        duration: '20-40 minutes',
         downtime: 'None'
     },
     dermatology: {
@@ -223,11 +295,13 @@ document.querySelectorAll('.service-card').forEach(card => {
 
 document.querySelectorAll('.service-link').forEach(link => {
     link.addEventListener('click', (e) => {
+        const parentCard = link.closest('.service-card');
+        const key = parentCard ? parentCard.getAttribute('data-service') : '';
+        if (!key) return;
+
         e.preventDefault();
         e.stopPropagation();
 
-        const parentCard = link.closest('.service-card');
-        const key = parentCard ? parentCard.getAttribute('data-service') : '';
         const bookingSection = document.getElementById('booking');
         const bookingTreatmentSelect = document.getElementById('treatment');
 
@@ -237,12 +311,20 @@ document.querySelectorAll('.service-link').forEach(link => {
             'thread-lifts': 'Thread Lift',
             'hydrafacial': 'HydraFacial',
             'chemical-peels': 'Chemical Peels',
+            'exosomes': 'Exosomes',
+            'hands-feet-rejuvenation': 'Hands and Feet Rejuvenation',
+            'biostimulators': 'Biostimulator Treatments',
+            'fat-dissolving': 'Fat Dissolving Injection',
             'rf-microneedling': 'PRP Face & Scalp',
             'glutathione': 'Profhilo',
             'laser-treatment': 'Hair Laser Removal',
             'skincare': 'CO2 Laser Resurfacing',
             'diabetes': 'Consultation',
             'hair-nails-diseases': 'Hair & Nails Diseases',
+            'stretch-marks': 'Stretch Marks Treatment',
+            'mole-removal': 'Mole Removal',
+            'skin-tags-removal': 'Skin Tags Removal',
+            'antioxidant-injections': 'Antioxidant Injections',
             'dermatology': 'Consultation'
         };
 
@@ -449,7 +531,8 @@ function prevTestimonial() {
 }
 
 // Mobile par sab reviews, desktop par carousel dikhana
-if (window.innerWidth > 768) {
+const isReviewsPage = Boolean(document.querySelector('.reviews-page'));
+if (window.innerWidth > 768 && !isReviewsPage) {
     showTestimonial(0);
     
     if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
@@ -463,6 +546,70 @@ if (window.innerWidth > 768) {
         card.style.display = 'block';
     });
 }
+
+// ============================================
+// Plain question sections ko accordion cards banana
+// ============================================
+function answerForQuestion(question) {
+    const normalizedQuestion = question.toLowerCase();
+
+    if (normalizedQuestion.includes('laser hair removal')) {
+        return 'Laser hair removal can be considered for many skin types, but darker skin requires suitable technology, careful settings and professional assessment.';
+    }
+    if (normalizedQuestion.includes('co2') || normalizedQuestion.includes('resurfacing')) {
+        return 'CO2 laser resurfacing may help selected concerns such as acne scars, uneven texture and enlarged pores. Your doctor confirms suitability, recovery and aftercare during consultation.';
+    }
+    if (normalizedQuestion.includes('acne scar')) {
+        return 'The suitable acne-scar plan depends on your scar type, skin condition and treatment history. A doctor may discuss laser, microneedling, peels or a combination.';
+    }
+    if (normalizedQuestion.includes('botox') || normalizedQuestion.includes('filler')) {
+        return 'Results vary by treatment and individual factors. Your doctor will explain expected duration, maintenance and realistic outcomes before treatment.';
+    }
+    if (normalizedQuestion.includes('diabetes')) {
+        return 'Dr. Ahmed Khalil provides diabetes and general medical consultation. Book an appointment to discuss blood sugar, weight, thyroid or related concerns.';
+    }
+    if (normalizedQuestion.includes('book') || normalizedQuestion.includes('appointment') || normalizedQuestion.includes('consultation')) {
+        return 'Use the booking form, call 0316 4364811 or contact us on WhatsApp to arrange a consultation with the relevant doctor.';
+    }
+    return 'Your doctor will assess your concern, explain suitable options and discuss expected results, possible downtime and aftercare during consultation.';
+}
+
+function createQuestionAccordion(sectionSelector) {
+    document.querySelectorAll(sectionSelector).forEach(section => {
+        const questions = sectionSelector.includes('services-question-grid')
+            ? Array.from(section.querySelectorAll(':scope > p'))
+            : Array.from(section.querySelectorAll(':scope > p')).filter(item => !item.classList.contains('section-subtitle') || item.querySelector('strong'));
+
+        questions.forEach(paragraph => {
+            if (paragraph.closest('.faq-item') || paragraph.classList.contains('services-faq-intro')) return;
+
+            const strong = paragraph.querySelector('strong');
+            const fullText = paragraph.textContent.trim();
+            const question = strong ? strong.textContent.trim() : fullText;
+            let answer = strong ? fullText.slice(question.length).trim() : '';
+            answer = answer.replace(/^\s*[:\-]?\s*/, '').trim() || answerForQuestion(question);
+
+            const item = document.createElement('div');
+            item.className = 'faq-item generated-faq-item';
+
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'faq-question';
+            button.setAttribute('aria-expanded', 'false');
+            button.innerHTML = `<span>${question}</span><i class="fas fa-plus"></i>`;
+
+            const answerElement = document.createElement('div');
+            answerElement.className = 'faq-answer';
+            answerElement.innerHTML = `<p>${answer}</p>`;
+
+            item.append(button, answerElement);
+            paragraph.replaceWith(item);
+        });
+    });
+}
+
+createQuestionAccordion('.reviews-faq, .doctor-questions, .why-faq');
+createQuestionAccordion('.services-question-grid');
 
 // ============================================
 // FAQ accordion ka control
@@ -482,6 +629,9 @@ faqQuestions.forEach(question => {
         // Current item ko kholna ya band karna
         if (!isActive) {
             faqItem.classList.add('active');
+            question.setAttribute('aria-expanded', 'true');
+        } else {
+            question.setAttribute('aria-expanded', 'false');
         }
     });
 });
