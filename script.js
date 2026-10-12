@@ -434,17 +434,17 @@ const heroForm = document.getElementById('heroForm');
 if (heroForm) {
     heroForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const name = heroForm.querySelector('input[type="text"]').value;
         const phone = heroForm.querySelector('input[type="tel"]').value;
         const treatment = heroForm.querySelector('select[name="treatment"]').value;
         const doctorField = heroForm.querySelector('select[name="doctor"]');
         const doctor = doctorField ? doctorField.value : '';
-        
+
         const message = `Hello👋, I'm ${name}. I would like to book a consultation for ${treatment}. My phone number is ${phone}. Please contact me soon.`;
         const finalMessage = doctor ? `${message} Preferred doctor: ${doctor}.` : message;
         const whatsappURL = `https://wa.me/923164364811?text=${encodeURIComponent(finalMessage)}`;
-        
+
         window.open(whatsappURL, '_blank');
         heroForm.reset();
     });
@@ -457,7 +457,7 @@ const bookingForm = document.getElementById('bookingForm');
 if (bookingForm) {
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
         const treatment = document.getElementById('treatment').value;
@@ -465,7 +465,7 @@ if (bookingForm) {
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
         const message = document.getElementById('message').value;
-        
+
         let whatsappMessage = `*APPOINTMENT REQUEST*\n\n`;
         whatsappMessage += `*Name:* ${name}\n`;
         whatsappMessage += `*Phone:* ${phone}\n`;
@@ -475,10 +475,10 @@ if (bookingForm) {
         if (time) whatsappMessage += `*Preferred Time:* ${time}\n`;
         if (message) whatsappMessage += `*Additional Notes:* ${message}\n`;
         whatsappMessage += `\nThank you for choosing Zahra Health Clinic!`;
-        
+
         const whatsappURL = `https://wa.me/923164364811?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappURL, '_blank');
-        
+
         // Kamyabi ka chhota animation dikhana
         showFormSuccess(bookingForm);
         bookingForm.reset();
@@ -488,10 +488,10 @@ if (bookingForm) {
 function showFormSuccess(form) {
     const originalButton = form.querySelector('button[type="submit"]');
     const originalText = originalButton.innerHTML;
-    
+
     originalButton.innerHTML = '<i class="fas fa-check-circle"></i> Request Sent!';
     originalButton.style.background = 'linear-gradient(135deg, #25d366, #128c7e)';
-    
+
     setTimeout(() => {
         originalButton.innerHTML = originalText;
         originalButton.style.background = '';
@@ -534,10 +534,10 @@ function prevTestimonial() {
 const isReviewsPage = Boolean(document.querySelector('.reviews-page'));
 if (window.innerWidth > 768 && !isReviewsPage) {
     showTestimonial(0);
-    
+
     if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
     if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
-    
+
     // Har 6 second baad testimonial badalna
     setInterval(nextTestimonial, 6000);
 } else {
@@ -620,12 +620,12 @@ faqQuestions.forEach(question => {
     question.addEventListener('click', () => {
         const faqItem = question.parentElement;
         const isActive = faqItem.classList.contains('active');
-        
+
         // Baqi tamam items band karna
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
         });
-        
+
         // Current item ko kholna ya band karna
         if (!isActive) {
             faqItem.classList.add('active');
@@ -661,7 +661,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
-    
+
     const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
@@ -701,11 +701,11 @@ document.querySelectorAll('.stat-number').forEach(element => {
 const serviceCards = document.querySelectorAll('.service-card');
 
 serviceCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
+    card.addEventListener('mouseenter', function () {
         this.style.transform = 'translateY(-10px)';
     });
-    
-    card.addEventListener('mouseleave', function() {
+
+    card.addEventListener('mouseleave', function () {
         this.style.transform = 'translateY(0)';
     });
 });
@@ -818,7 +818,7 @@ function updateModalContent() {
     const title = item.getAttribute('data-title') || item.querySelector('p').textContent;
     const description = item.getAttribute('data-description') || 'Premium treatment at Zahra Health Clinic';
     const imageSrc = item.getAttribute('data-image');
-    
+
     document.getElementById('modalTitle').textContent = title;
     document.getElementById('modalDescription').textContent = description;
     document.getElementById('currentSlide').textContent = currentGalleryIndex + 1;
@@ -889,7 +889,7 @@ if (galleryModal) {
     galleryModal.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     }, false);
-    
+
     galleryModal.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
@@ -899,7 +899,7 @@ if (galleryModal) {
 function handleSwipe() {
     const swipeThreshold = 50;
     const diff = touchStartX - touchEndX;
-    
+
     if (Math.abs(diff) > swipeThreshold) {
         if (diff > 0) {
             nextGallerySlide();
@@ -916,19 +916,19 @@ const formInputs = document.querySelectorAll('.form-group input, .form-group sel
 
 formInputs.forEach(input => {
     // Focus par animation lagana
-    input.addEventListener('focus', function() {
+    input.addEventListener('focus', function () {
         this.parentElement.classList.add('focused');
     });
-    
+
     // Focus khatam hone par animation hatana
-    input.addEventListener('blur', function() {
+    input.addEventListener('blur', function () {
         if (!this.value) {
             this.parentElement.classList.remove('focused');
         }
     });
-    
+
     // Filled state update karna
-    input.addEventListener('input', function() {
+    input.addEventListener('input', function () {
         if (this.value) {
             this.parentElement.classList.add('filled');
         } else {
