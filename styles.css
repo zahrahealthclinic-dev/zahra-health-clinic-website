@@ -417,6 +417,44 @@ body {
     margin: 0 auto;
 }
 
+.services-detail-copy {
+    text-align: left;
+}
+
+.services-detail-copy .section-subtitle {
+    max-width: none;
+    margin: 0;
+}
+
+.why-us-page .why-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.why-us-page .why-overview-card {
+    padding: 28px;
+    border: 1px solid rgba(192, 154, 95, 0.22);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(243, 236, 228, 0.7));
+    box-shadow: var(--shadow-sm);
+}
+
+.why-us-page .why-overview-card p {
+    margin: 0;
+    color: var(--color-gray);
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+@media (max-width: 1024px) {
+    .why-us-page .why-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
@@ -3645,6 +3683,7 @@ body {
 }
 
 .generated-faq-item.active .faq-question {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     border-radius: 12px 12px 0 0;
 }
 
@@ -3909,6 +3948,13 @@ a[href^="https://wa.me/"]:not(.btn):not(.whatsapp-float):hover {
     min-height: 68px;
     background: rgba(255, 255, 255, 0.86);
     border-radius: 14px;
+}
+
+#faq .faq-item.active .faq-question,
+.faq-page .faq-item.active .faq-question {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+    border-radius: 14px 14px 0 0;
 }
 
 .reviews-page .reviews-faq,

@@ -446,7 +446,6 @@ if (heroForm) {
         const whatsappURL = `https://wa.me/923164364811?text=${encodeURIComponent(finalMessage)}`;
 
         window.open(whatsappURL, '_blank');
-        heroForm.reset();
     });
 }
 
@@ -455,8 +454,32 @@ if (heroForm) {
 // ============================================
 const bookingForm = document.getElementById('bookingForm');
 if (bookingForm) {
+    const dateField = bookingForm.querySelector('input[type="date"]');
+    function validateBookingDate() {
+        const parts = new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Asia/Karachi', year: 'numeric', month: '2-digit', day: '2-digit'
+        }).formatToParts(new Date());
+        const part = type => parts.find(item => item.type === type).value;
+        const today = `${part('year')}-${part('month')}-${part('day')}`;
+        dateField.min = today;
+        let error = '';
+        if (dateField.value) {
+            const day = new Date(`${dateField.value}T12:00:00Z`).getUTCDay();
+            if (dateField.value < today) error = 'Please choose today or a future date.';
+            else if (day === 0 || day === 6) error = 'Clinic appointments are available Monday to Friday only.';
+        }
+        dateField.setCustomValidity(error);
+    }
+    if (dateField) {
+        validateBookingDate();
+        dateField.addEventListener('input', validateBookingDate);
+        dateField.addEventListener('change', validateBookingDate);
+        dateField.addEventListener('focus', validateBookingDate);
+    }
     bookingForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        if (dateField) validateBookingDate();
+        if (!bookingForm.reportValidity()) return;
 
         const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
@@ -479,23 +502,7 @@ if (bookingForm) {
         const whatsappURL = `https://wa.me/923164364811?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappURL, '_blank');
 
-        // Kamyabi ka chhota animation dikhana
-        showFormSuccess(bookingForm);
-        bookingForm.reset();
     });
-}
-
-function showFormSuccess(form) {
-    const originalButton = form.querySelector('button[type="submit"]');
-    const originalText = originalButton.innerHTML;
-
-    originalButton.innerHTML = '<i class="fas fa-check-circle"></i> Request Sent!';
-    originalButton.style.background = 'linear-gradient(135deg, #25d366, #128c7e)';
-
-    setTimeout(() => {
-        originalButton.innerHTML = originalText;
-        originalButton.style.background = '';
-    }, 3000);
 }
 
 // ============================================
@@ -532,11 +539,10 @@ function prevTestimonial() {
 
 // Mobile par sab reviews, desktop par carousel dikhana
 const isReviewsPage = Boolean(document.querySelector('.reviews-page'));
+if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
+if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
 if (window.innerWidth > 768 && !isReviewsPage) {
     showTestimonial(0);
-
-    if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
-    if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
 
     // Har 6 second baad testimonial badalna
     setInterval(nextTestimonial, 6000);
@@ -548,75 +554,24 @@ if (window.innerWidth > 768 && !isReviewsPage) {
 }
 
 // ============================================
-// Plain question sections ko accordion cards banana
-// ============================================
-function answerForQuestion(question) {
-    const normalizedQuestion = question.toLowerCase();
-
-    if (normalizedQuestion.includes('laser hair removal')) {
-        return 'Laser hair removal can be considered for many skin types, but darker skin requires suitable technology, careful settings and professional assessment.';
-    }
-    if (normalizedQuestion.includes('co2') || normalizedQuestion.includes('resurfacing')) {
-        return 'CO2 laser resurfacing may help selected concerns such as acne scars, uneven texture and enlarged pores. Your doctor confirms suitability, recovery and aftercare during consultation.';
-    }
-    if (normalizedQuestion.includes('acne scar')) {
-        return 'The suitable acne-scar plan depends on your scar type, skin condition and treatment history. A doctor may discuss laser, microneedling, peels or a combination.';
-    }
-    if (normalizedQuestion.includes('botox') || normalizedQuestion.includes('filler')) {
-        return 'Results vary by treatment and individual factors. Your doctor will explain expected duration, maintenance and realistic outcomes before treatment.';
-    }
-    if (normalizedQuestion.includes('diabetes')) {
-        return 'Dr. Ahmed Khalil provides diabetes and general medical consultation. Book an appointment to discuss blood sugar, weight, thyroid or related concerns.';
-    }
-    if (normalizedQuestion.includes('book') || normalizedQuestion.includes('appointment') || normalizedQuestion.includes('consultation')) {
-        return 'Use the booking form, call 0316 4364811 or contact us on WhatsApp to arrange a consultation with the relevant doctor.';
-    }
-    return 'Your doctor will assess your concern, explain suitable options and discuss expected results, possible downtime and aftercare during consultation.';
-}
-
-function createQuestionAccordion(sectionSelector) {
-    document.querySelectorAll(sectionSelector).forEach(section => {
-        const questions = sectionSelector.includes('services-question-grid')
-            ? Array.from(section.querySelectorAll(':scope > p'))
-            : Array.from(section.querySelectorAll(':scope > p')).filter(item => !item.classList.contains('section-subtitle') || item.querySelector('strong'));
-
-        questions.forEach(paragraph => {
-            if (paragraph.closest('.faq-item') || paragraph.classList.contains('services-faq-intro')) return;
-
-            const strong = paragraph.querySelector('strong');
-            const fullText = paragraph.textContent.trim();
-            const question = strong ? strong.textContent.trim() : fullText;
-            let answer = strong ? fullText.slice(question.length).trim() : '';
-            answer = answer.replace(/^\s*[:\-]?\s*/, '').trim() || answerForQuestion(question);
-
-            const item = document.createElement('div');
-            item.className = 'faq-item generated-faq-item';
-
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'faq-question';
-            button.setAttribute('aria-expanded', 'false');
-            button.innerHTML = `<span>${question}</span><i class="fas fa-plus"></i>`;
-
-            const answerElement = document.createElement('div');
-            answerElement.className = 'faq-answer';
-            answerElement.innerHTML = `<p>${answer}</p>`;
-
-            item.append(button, answerElement);
-            paragraph.replaceWith(item);
-        });
-    });
-}
-
-createQuestionAccordion('.reviews-faq, .doctor-questions, .why-faq');
-createQuestionAccordion('.services-question-grid');
-
-// ============================================
 // FAQ accordion ka control
 // ============================================
 const faqQuestions = document.querySelectorAll('.faq-question');
 
-faqQuestions.forEach(question => {
+faqQuestions.forEach((question, index) => {
+    question.type = 'button';
+    question.setAttribute('aria-expanded', question.parentElement.classList.contains('active') ? 'true' : 'false');
+    const answer = question.parentElement.querySelector('.faq-answer');
+    if (answer) {
+        answer.id = answer.id || `faq-answer-${index + 1}`;
+        question.setAttribute('aria-controls', answer.id);
+    }
+    const icon = question.querySelector('i');
+    if (icon) {
+        icon.classList.remove('fa-plus');
+        icon.classList.add('fa-chevron-down');
+        icon.setAttribute('aria-hidden', 'true');
+    }
     question.addEventListener('click', () => {
         const faqItem = question.parentElement;
         const isActive = faqItem.classList.contains('active');
@@ -624,6 +579,8 @@ faqQuestions.forEach(question => {
         // Baqi tamam items band karna
         document.querySelectorAll('.faq-item').forEach(item => {
             item.classList.remove('active');
+            const button = item.querySelector('.faq-question');
+            if (button) button.setAttribute('aria-expanded', 'false');
         });
 
         // Current item ko kholna ya band karna
