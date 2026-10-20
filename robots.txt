@@ -1,21 +1,11 @@
+User-agent: Googlebot
+Allow: /*.css$
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /admin/
-Allow: /assets/
-
-# Sitemap location for search engines
 Sitemap: https://www.zahraskinlaserclinicbydrhina.com/sitemap.xml
-
-# Crawl delay for search engines (in seconds)
-Crawl-delay: 1
-
-# Specific rules for Googlebot
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Specific rules for Bingbot
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
+Disallow: /feed/ 
+Disallow: /tag/
+ 

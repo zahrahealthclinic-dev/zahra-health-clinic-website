@@ -53,220 +53,372 @@
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles.css?v=20261013-faq2">
 
-    <!-- Local business ke liye Schema markup -->
+    <!-- Client-provided homepage structured data -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-        "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
-        "name": "Zahra Health Clinic by Dr. Hina",
-        "description": "Premium Dermatology, Laser & Aesthetic Care clinic with certified dermatologists",
-        "url": "https://www.zahraskinlaserclinicbydrhina.com/",
-        "telephone": "+92-316-4364811",
-        "email": "zahrahealthclinic@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Suite No. 204, 2nd Floor, Jakvani Tower, Midway Commercial B",
-            "addressLocality": "Bahria Town",
-            "addressRegion": "Karachi",
-            "postalCode": "75500",
-            "addressCountry": "PK"
+      "@type": "MedicalClinic",
+      "@id": "https://www.zahraskinlaserclinicbydrhina.com/#organization",
+      "name": "Zahra Skin & Laser Clinic by Dr Hina",
+      "alternateName": "Zahra Skin Laser Clinic",
+      "url": "https://www.zahraskinlaserclinicbydrhina.com/",
+      "description": "Skin and laser clinic in Bahria Town, Karachi, offering aesthetic dermatology, laser hair removal, CO2 laser resurfacing, acne and scar treatment, anti-ageing injectables, and diabetes and weight management care.",
+      "telephone": "+923164364811",
+      "medicalSpecialty": "Dermatology",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bahria Town",
+        "addressLocality": "Karachi",
+        "addressRegion": "Sindh",
+        "addressCountry": "PK"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+923164364811",
+          "contactType": "customer support",
+          "areaServed": "PK",
+          "availableLanguage": [
+            "English",
+            "Urdu"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/711928275340270/",
+        "https://www.instagram.com/drhinawazir"
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Karachi"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "24.7844",
-            "longitude": "67.0484"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "120"
-        },
-        "image": "https://www.zahraskinlaserclinicbydrhina.com/assets/doctors/dr-hina-wazir.jpeg",
-        "priceRange": "₨₨",
-        "hasMap": "https://maps.google.com/?q=Zahra+Health+Clinic+Bahria+Town+Karachi",
-        "sameAs": [
-            "https://www.facebook.com/zahrahealthclinic",
-            "https://www.instagram.com/zahrahealthclinic"
-        ],
-        "knowsAbout": ["Dermatology", "Laser Treatment", "HydraFacial", "Hair Removal", "Acne Treatment", "Aesthetic Care", "Skin Care", "Hair Treatment", "Skin Rejuvenation"],
-        "availableService": [
-            {
-                "@type": "MedicalService",
-                "name": "HydraFacial",
-                "areaServed": {
-                    "@type": "Place",
-                    "name": "Bahria Town, Karachi"
+        {
+          "@type": "Place",
+          "name": "Bahria Town Karachi"
+        }
+      ],
+      "founder": {
+        "@id": "https://www.zahraskinlaserclinicbydrhina.com/#drhina"
+      },
+      "employee": {
+        "@id": "https://www.zahraskinlaserclinicbydrhina.com/#drhina"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Clinic Treatments and Services",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Diabetes & Weight Management",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Obesity and Weight Management"
                 }
-            },
-            {
-                "@type": "MedicalService",
-                "name": "Laser Hair Removal",
-                "areaServed": {
-                    "@type": "Place",
-                    "name": "Bahria Town, Karachi"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Blood Pressure Management"
                 }
-            },
-            {
-                "@type": "MedicalService",
-                "name": "Acne Treatment",
-                "areaServed": {
-                    "@type": "Place",
-                    "name": "Bahria Town, Karachi"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Blood Sugar and Diabetes Care"
                 }
-            },
-            {
-                "@type": "MedicalService",
-                "name": "Skin Rejuvenation",
-                "areaServed": {
-                    "@type": "Place",
-                    "name": "Bahria Town, Karachi"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Cholesterol Management"
                 }
-            }
-        ],
-        "staff": [
-            {
-                "@type": "Person",
-                "name": "Dr. Hina Wazir",
-                "jobTitle": "CEO, RMP Cosmetologist",
-                "description": "Founder and CEO with Fellowship in Aesthetic Medicine and 10 years of experience"
-            },
-            {
-                "@type": "Person",
-                "name": "Dr. Ahmed Khalil",
-                "jobTitle": "CEO, General Physician",
-                "description": "Co-founder with Masters from Queen Mary University London"
-            },
-            {
-                "@type": "Person",
-                "name": "Dr. Saher Fatima",
-                "jobTitle": "Classified Dermatologist",
-                "description": "Specialist in skin, hair, and nails with 5 years of experience"
-            }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Diabetic Foot Care"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Thyroid Care"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Aesthetic Dermatology",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Laser Hair Removal"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Dermal Fillers"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Botox"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "CO2 Laser Skin Resurfacing"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "PRP Scalp Treatment"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Microneedling"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "PRP Face Treatment"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Acne and Acne Scar Treatment"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Chemical Peel"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hands and Feet Rejuvenation"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "PDRN / Polynucleotide Skin Boosters"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Sculptra and Radiesse Biostimulators"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Exosome Treatment"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Mole Removal & Other Procedures",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Mole Removal"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Fat Dissolving Injection"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Stretch Marks Treatment"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Antioxidant Injections"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Skin Tags Removal"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Thread Lifting"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Hair Fall Treatment"
+                }
+              }
+            ]
+          }
         ]
-    }
-    </script>
-
-    <!-- Google Maps ke liye local business schema -->
-    <script type="application/ld+json">
+      }
+    },
     {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Zahra Health Clinic",
-        "image": "https://www.zahraskinlaserclinicbydrhina.com/assets/doctors/dr-hina-wazir.jpeg",
-        "description": "Expert Dermatology and Aesthetic Clinic in Bahria Town Karachi. Specialized laser treatments, HydraFacial, hair removal, acne treatment, and premium skin care services by certified dermatologists.",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Suite No. 204, 2nd Floor, Jakvani Tower, Midway Commercial B",
-            "addressLocality": "Bahria Town",
-            "addressRegion": "Karachi",
-            "postalCode": "75500",
-            "addressCountry": "PK"
+      "@type": "Person",
+      "@id": "https://www.zahraskinlaserclinicbydrhina.com/#drhina",
+      "name": "Dr. Hina Wazir",
+      "url": "https://www.zahraskinlaserclinicbydrhina.com/doctors.html",
+      "sameAs": "https://www.instagram.com/drhinawazir",
+      "worksFor": {
+        "@id": "https://www.zahraskinlaserclinicbydrhina.com/#organization"
+      },
+      "jobTitle": "RMP, Cosmetologist"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.zahraskinlaserclinicbydrhina.com/#website",
+      "url": "https://www.zahraskinlaserclinicbydrhina.com/",
+      "name": "Zahra Skin & Laser Clinic by Dr Hina",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://www.zahraskinlaserclinicbydrhina.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.zahraskinlaserclinicbydrhina.com/#webpage",
+      "url": "https://www.zahraskinlaserclinicbydrhina.com/",
+      "name": "Zahra Skin & Laser Clinic by Dr Hina | Skin Specialist in Karachi",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.zahraskinlaserclinicbydrhina.com/#website"
+      },
+      "about": {
+        "@id": "https://www.zahraskinlaserclinicbydrhina.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.zahraskinlaserclinicbydrhina.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Zahra Health Clinic offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zahra Health Clinic offers aesthetic, dermatology, laser and medical consultation services, including CO2 laser resurfacing, laser facial treatments, laser hair removal, HydraFacial, PRP, Botox, dermal fillers, thread lifts, chemical peels, skin boosters, PDRN, Profhilo and dermatology consultations."
+          }
         },
-        "telephone": "+92-316-4364811",
-        "email": "zahrahealthclinic@gmail.com",
-        "url": "https://www.zahraskinlaserclinicbydrhina.com/",
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "10:00",
-                "closes": "19:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Saturday"],
-                "opens": "10:00",
-                "closes": "17:00"
-            }
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+92-316-4364811",
-            "email": "zahrahealthclinic@gmail.com",
-            "areaServed": ["Karachi", "Bahria Town", "Pakistan"]
+        {
+          "@type": "Question",
+          "name": "Who is the cosmetologist at Zahra Health Clinic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dr. Hina Wazir, RMP, Cosmetologist, is associated with Zahra Health Clinic and provides aesthetic and cosmetic care based on individual patient needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who can I consult for diabetes at Zahra Health Clinic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dr. Ahmed Khalil is a Diabetes Consultant and General Physician at Zahra Health Clinic. Patients can book a consultation for diabetes and general medical concerns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Zahra Health Clinic provide CO2 laser treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Zahra Health Clinic offers CO2 laser resurfacing for selected skin concerns, including acne scars, skin texture and rejuvenation. Treatment suitability should be assessed during a professional consultation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is laser hair removal suitable for dark skin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Laser hair removal can be considered for many skin types, but darker skin requires appropriate technology, settings and professional assessment. Your skin type and hair characteristics should be evaluated before treatment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best skin tightening treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no single treatment that is appropriate for every patient. The suitable option depends on skin laxity, skin type, age, treatment goals and other individual factors. A consultation can help identify appropriate options."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Zahra Health Clinic located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zahra Health Clinic is located at Suite No. 204, 2nd Floor, Jakvani Tower, Midway Commercial B, Bahria Town, Karachi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I book an appointment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can contact Zahra Health Clinic by phone or WhatsApp to discuss your concerns and arrange an appointment with the relevant doctor."
+          }
         }
+      ]
     }
-    </script>
-
-    <!-- Organization ka schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Zahra Health Clinic by Dr. Hina",
-        "alternateName": "Zahra Health Clinic",
-        "url": "https://www.zahraskinlaserclinicbydrhina.com/",
-        "logo": "https://www.zahraskinlaserclinicbydrhina.com/assets/logo.png",
-        "description": "Premium Dermatology, Laser and Aesthetic Care Clinic",
-        "foundingDate": "2019",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "Customer Service",
-            "telephone": "+92-316-4364811",
-            "email": "zahrahealthclinic@gmail.com"
-        },
-        "sameAs": [
-            "https://www.facebook.com/zahrahealthclinic",
-            "https://www.instagram.com/zahrahealthclinic"
-        ],
-        "areaServed": {
-            "@type": "City",
-            "name": "Karachi"
-        }
-    }
-    </script>
-
-    <!-- Local keywords ke saath medical service schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "HydraFacial in Bahria Town",
-        "areaServed": {
-            "@type": "Place",
-            "name": "Bahria Town, Karachi"
-        },
-        "provider": {
-            "@type": "MedicalBusiness",
-            "name": "Zahra Health Clinic"
-        },
-        "url": "https://www.zahraskinlaserclinicbydrhina.com/"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Laser Hair Removal in Bahria Town",
-        "areaServed": {
-            "@type": "Place",
-            "name": "Bahria Town, Karachi"
-        },
-        "provider": {
-            "@type": "MedicalBusiness",
-            "name": "Zahra Health Clinic"
-        },
-        "url": "https://www.zahraskinlaserclinicbydrhina.com/"
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Acne Treatment in Bahria Town",
-        "areaServed": {
-            "@type": "Place",
-            "name": "Bahria Town, Karachi"
-        },
-        "provider": {
-            "@type": "MedicalBusiness",
-            "name": "Zahra Health Clinic"
-        },
-        "url": "https://www.zahraskinlaserclinicbydrhina.com/"
-    }
+  ]
+}
     </script>
 </head>
 
