@@ -50,3 +50,30 @@
     .clinic-chat-header { padding: 8px 16px; }
     .clinic-chat-log { min-height: 0; }
 }
+
+/* Mobile chat occupies the visible screen, including when the keyboard opens. */
+@media (max-width: 768px) {
+    .clinic-chat-panel {
+        top: var(--chat-viewport-top, 0px);
+        bottom: auto;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: var(--chat-viewport-height);
+        max-height: none;
+        box-sizing: border-box;
+        border-radius: 0;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        overscroll-behavior: contain;
+    }
+    .clinic-chat-log { min-height: 0; -webkit-overflow-scrolling: touch; }
+    .clinic-chat-message { font-size: 14px; }
+    .clinic-chat-suggestions { flex-wrap: nowrap; overflow-x: auto; }
+    .clinic-chat-suggestions button { flex: 0 0 auto; }
+    body.clinic-chat-mobile-open .clinic-chat-launcher,
+    body.clinic-chat-mobile-open .back-to-top { visibility: hidden; }
+    .clinic-chat-compact .clinic-chat-note,
+    .clinic-chat-compact .clinic-chat-suggestions { display: none; }
+    .clinic-chat-compact .clinic-chat-header { padding: 6px 16px; }
+    .clinic-chat-compact .clinic-chat-footer { padding-bottom: 4px; }
+}

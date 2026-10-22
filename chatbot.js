@@ -34,6 +34,30 @@
     const suggestions = widget.querySelector('.clinic-chat-suggestions');
     let context = null;
     let welcomed = false;
+    let savedPage = null;
+    const mobileView = () => window.matchMedia('(max-width: 768px)').matches;
+    function syncPageLock() {
+        const lock = !panel.hidden && mobileView();
+        if (lock && !savedPage) {
+            savedPage = { x: window.scrollX, y: window.scrollY,
+                position: document.body.style.position, top: document.body.style.top,
+                left: document.body.style.left, width: document.body.style.width,
+                overflow: document.body.style.overflow };
+            Object.assign(document.body.style, { position: 'fixed', top: `-${savedPage.y}px`,
+                left: `-${savedPage.x}px`, width: '100%', overflow: 'hidden' });
+        } else if (!lock && savedPage) {
+            const saved = savedPage;
+            savedPage = null;
+            Object.assign(document.body.style, { position: saved.position, top: saved.top,
+                left: saved.left, width: saved.width, overflow: saved.overflow });
+            const behavior = document.documentElement.style.scrollBehavior;
+            document.documentElement.style.scrollBehavior = 'auto';
+            window.scrollTo(saved.x, saved.y);
+            document.documentElement.style.scrollBehavior = behavior;
+        }
+        document.body.classList.toggle('clinic-chat-mobile-open', lock);
+        panel.setAttribute('aria-modal', String(lock));
+    }
 
     function append(text, user, answer) {
         const message = document.createElement('div');
@@ -87,20 +111,47 @@
     }
     function setOpen(open) {
         panel.hidden = !open;
+        syncPageLock();
+        fitViewport();
         launcher.setAttribute('aria-expanded', String(open));
         launcher.setAttribute('aria-label', open ? 'Close clinic chat' : 'Open clinic chat');
         if (open) {
             if (!welcomed) welcome();
-            input.focus({ preventScroll: true });
-        } else launcher.focus({ preventScroll: true });
+            if (mobileView()) widget.querySelector('.clinic-chat-close').focus({ preventScroll: true });
+            else input.focus({ preventScroll: true });
+        } else {
+            input.blur();
+            launcher.focus({ preventScroll: true });
+        }
     }
     launcher.addEventListener('click', () => setOpen(panel.hidden));
     widget.querySelector('.clinic-chat-close').addEventListener('click', () => setOpen(false));
     widget.querySelector('form').addEventListener('submit', event => { event.preventDefault(); ask(input.value); });
-    widget.querySelector('.clinic-chat-reset').addEventListener('click', () => { log.replaceChildren(); context = null; welcome(); input.focus(); });
+    widget.querySelector('.clinic-chat-reset').addEventListener('click', () => { log.replaceChildren(); context = null; welcome(); input.focus({ preventScroll: true }); });
     widget.addEventListener('keydown', event => { if (event.key === 'Escape' && !panel.hidden) { event.preventDefault(); setOpen(false); } });
-    const fitViewport = () => widget.style.setProperty('--chat-viewport-height', (window.visualViewport ? window.visualViewport.height : window.innerHeight) + 'px');
+    const fitViewport = () => {
+        const viewport = window.visualViewport;
+        const height = viewport ? viewport.height : window.innerHeight;
+        widget.style.setProperty('--chat-viewport-height', height + 'px');
+        widget.style.setProperty('--chat-viewport-top', (viewport ? viewport.offsetTop : 0) + 'px');
+        widget.classList.toggle('clinic-chat-compact', height < 500);
+        syncPageLock();
+    };
     fitViewport();
     window.addEventListener('resize', fitViewport);
-    if (window.visualViewport) window.visualViewport.addEventListener('resize', fitViewport);
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', fitViewport);
+        window.visualViewport.addEventListener('scroll', fitViewport);
+    }
+    panel.addEventListener('keydown', event => {
+        if (event.key !== 'Tab' || !mobileView() || panel.hidden) return;
+        const controls = [...panel.querySelectorAll('a[href], button, input, [tabindex="0"]')]
+            .filter(element => element.getClientRects().length);
+        const first = controls[0], last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault(); first.focus();
+        }
+    });
 })();
