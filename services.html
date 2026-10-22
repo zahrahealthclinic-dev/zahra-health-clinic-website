@@ -13,9 +13,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20261013-faq2">
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261022-performance1">
+    <link rel="stylesheet" href="page-images.css?v=2">
+    <link rel="stylesheet" href="mobile-navigation.css?v=4">
+    <link rel="stylesheet" href="chatbot.css?v=2">
 </head>
 
 <body>
@@ -36,18 +42,70 @@
                 aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                <li class="nav-dropdown">
+                    <a href="services.html" class="nav-link nav-dropdown-page">Services</a>
+                    <button class="nav-dropdown-toggle" type="button" aria-label="Toggle services submenu" aria-expanded="false" aria-controls="mobileServicesMenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                    <ul class="nav-dropdown-menu" id="mobileServicesMenu" hidden>
+                        <li class="nav-dropdown-group">
+                            <a href="aesthetic-dermatology.html">Aesthetic Dermatology</a>
+                            <button class="nav-dropdown-toggle nav-submenu-toggle" type="button" aria-label="Toggle Aesthetic Dermatology treatments" aria-expanded="false" aria-controls="services-aesthetic-submenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                            <ul class="nav-dropdown-menu nav-flyout" id="services-aesthetic-submenu" hidden>
+                                <li><a href="aesthetic-dermatology.html#service-laser-treatment">Laser Hair Removal (Soprano Titanium)</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-skincare">CO2 Laser Resurfacing</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-dermatology">Acne &amp; Scars Treatment</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-hydrafacial">HydraFacial</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-rf-microneedling">Microneedling &amp; PRP Face</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-glutathione">Skin Boosters: PDRN &amp; Polynucleotide</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-chemical-peels">Chemical Peels</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-exosomes">Exosomes</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-hands-feet-rejuvenation">Hands &amp; Feet Rejuvenation</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-botox">Botox</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-dermal-fillers">Dermal Fillers</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-thread-lifts">Thread Lifting</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-biostimulators">Sculptra &amp; Radiesse Biostimulators</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-group">
+                            <a href="mole-body-minor-procedures.html">Mole, Body &amp; Minor Procedures</a>
+                            <button class="nav-dropdown-toggle nav-submenu-toggle" type="button" aria-label="Toggle Mole, Body &amp; Minor Procedures treatments" aria-expanded="false" aria-controls="services-minor-submenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                            <ul class="nav-dropdown-menu nav-flyout" id="services-minor-submenu" hidden>
+                                <li><a href="mole-body-minor-procedures.html#service-fat-dissolving">Fat Dissolving Injection</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-hair-nails-diseases">PRP Scalp &amp; Hair Fall Treatment</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-stretch-marks">Stretch Marks Treatment</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-mole-removal">Mole Removal</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-skin-tags-removal">Skin Tags Removal</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-antioxidant-injections">Antioxidant Injections</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-group">
+                            <a href="diabetes-weight-management.html">Diabetes &amp; Weight Management</a>
+                            <button class="nav-dropdown-toggle nav-submenu-toggle" type="button" aria-label="Toggle Diabetes &amp; Weight Management treatments" aria-expanded="false" aria-controls="services-diabetes-submenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                            <ul class="nav-dropdown-menu nav-flyout" id="services-diabetes-submenu" hidden>
+                                <li><a href="diabetes-weight-management.html#service-diabetes">Diabetes &amp; Weight Management Clinic</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="doctors.html" class="nav-link nav-dropdown-page">Doctors</a>
+                    <button class="nav-dropdown-toggle" type="button" aria-label="Toggle doctors submenu" aria-expanded="false" aria-controls="mobileDoctorsMenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                    <ul class="nav-dropdown-menu" id="mobileDoctorsMenu" hidden>
+                        <li><a href="doctors.html#dr-hina-wazir">Dr. Hina Wazir</a></li>
+                        <li><a href="doctors.html#dr-ahmed-khalil">Dr. Ahmed Khalil</a></li>
+                        <li><a href="doctors.html#dr-saher-fatima">Dr. Saher Fatima</a></li>
+                    </ul>
+                </li>
                 <li><a href="why-us.html" class="nav-link">Why Choose Us</a></li>
                 <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                <li><a href="index.html#gallery" class="nav-link">Before &amp; After</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
             </ul>
         </div>
     </nav>
     <main class="page-main">
-        <section class="page-hero">
-            <div class="container">
+        <section class="page-hero page-hero--illustrated">
+            <div class="container page-image-layout">
                 <div class="section-header">
                     <h1 class="section-title">Skin Clinic in Karachi: Laser, Aesthetic &amp; Dermatology Services</h1>
                     <p class="section-subtitle">From CO2 laser resurfacing and laser hair removal for dark skin to acne
@@ -58,18 +116,21 @@
                             href="https://wa.me/923164364811" target="_blank" rel="noopener noreferrer"
                             class="btn btn-secondary">WhatsApp Us</a></p>
                 </div>
+                <div class="page-hero-visual page-hero-visual--portrait" aria-hidden="true">
+                    <img src="assets/pages/services-treatment.webp" alt="" width="1024" height="1536" fetchpriority="high" decoding="async">
+                </div>
             </div>
         </section>
         <section class="services" id="services">
             <div class="container">
 
                 <div class="section-header">
-                    <h2 id="aesthetic-services" class="section-title">Laser Treatments for Face &amp; Body</h2>
+                    <h2 id="aesthetic-services" class="section-title"><a href="aesthetic-dermatology.html">Laser Treatments for Face &amp; Body</a></h2>
                     <p class="section-subtitle">Our laser and skin clinic uses modern systems with comfort cooling.
                         Settings are matched to your skin tone, which matters a lot for South Asian skin.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card" data-service="laser-treatment">
+                    <div class="service-card mobile-nav-target" id="service-laser-treatment" data-service="laser-treatment">
                         <div class="service-icon"><i class="fas fa-bolt"></i></div>
                         <h3>Laser Hair Removal (Soprano Titanium)</h3>
                         <p>Smooth skin without constant shaving or waxing. Our double-cooling laser keeps sessions
@@ -80,7 +141,7 @@
                         </p><a href="booking.html?treatment=Hair%20Laser%20Removal" class="service-link">Book Treatment
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="skincare">
+                    <div class="service-card mobile-nav-target" id="service-skincare" data-service="skincare">
                         <div class="service-icon"><i class="fas fa-fire"></i></div>
                         <h3>CO2 Laser Resurfacing</h3>
                         <p>Fractional CO2 laser removes damaged layers and triggers fresh collagen, helping acne scars,
@@ -91,7 +152,7 @@
                             Treatment
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="dermatology">
+                    <div class="service-card mobile-nav-target" id="service-dermatology" data-service="dermatology">
                         <div class="service-icon"><i class="fas fa-user-md"></i></div>
                         <h3>Acne &amp; Scars Treatment</h3>
                         <p>We treat active acne first, then plan the right scar approach - laser, microneedling, peels
@@ -110,14 +171,14 @@
                         differs so you only pay for what you need.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card" data-service="hydrafacial">
+                    <div class="service-card mobile-nav-target" id="service-hydrafacial" data-service="hydrafacial">
                         <div class="service-icon"><i class="fas fa-water"></i></div>
                         <h3>HydraFacial</h3>
                         <p>Deep cleansing, extraction and hydration for fresh, glowing skin. Suitable for tired, dull,
                             uneven or dehydrated skin.</p><a href="booking.html?treatment=HydraFacial"
                             class="service-link">Book Treatment <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="rf-microneedling">
+                    <div class="service-card mobile-nav-target" id="service-rf-microneedling" data-service="rf-microneedling">
                         <div class="service-icon"><i class="fas fa-vial"></i></div>
                         <h3>Microneedling &amp; PRP Face</h3>
                         <p>Microneedling stimulates collagen to smooth texture and scars. PRP made from your own blood
@@ -126,16 +187,16 @@
                             href="booking.html?treatment=PRP%20Face%20%26%20Scalp" class="service-link">Book Treatment
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="glutathione">
+                    <div class="service-card mobile-nav-target" id="service-glutathione" data-service="glutathione">
                         <div class="service-icon"><i class="fas fa-syringe"></i></div>
                         <h3>Skin Boosters: PDRN &amp; Polynucleotide</h3>
                         <p>Injectable boosters for deep hydration, elasticity and better skin quality, with a soft,
                             healthy finish.</p>
                         <p><strong>Downtime:</strong> Small bumps settle within a day or two.</p><a
-                            href="booking.html?treatment=Profhilo" class="service-link">Book Treatment <i
+                            href="booking.html?treatment=PDRN%20and%20Polynucleotide" class="service-link">Book Treatment <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="chemical-peels">
+                    <div class="service-card mobile-nav-target" id="service-chemical-peels" data-service="chemical-peels">
                         <div class="service-icon"><i class="fas fa-flask"></i></div>
                         <h3>Chemical Peels</h3>
                         <p>Medical-grade peels for pigmentation, acne marks and rough texture, chosen by strength to
@@ -144,7 +205,7 @@
                             few days.</p><a href="booking.html?treatment=Chemical%20Peels" class="service-link">Book
                             Treatment <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="exosomes">
+                    <div class="service-card mobile-nav-target" id="service-exosomes" data-service="exosomes">
                         <div class="service-icon"><i class="fas fa-dna"></i></div>
                         <h3>Exosomes</h3>
                         <p>A regenerative therapy that supports healing and glow, often paired with microneedling.</p>
@@ -154,7 +215,7 @@
                         <a href="booking.html?treatment=Exosomes" class="service-link">Book Treatment <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="hands-feet-rejuvenation">
+                    <div class="service-card mobile-nav-target" id="service-hands-feet-rejuvenation" data-service="hands-feet-rejuvenation">
                         <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
                         <h3>Hands &amp; Feet Rejuvenation</h3>
                         <p>Improve texture, volume and tone so your hands and feet look as cared for as your face.</p>
@@ -172,14 +233,14 @@
                         laxity you have. We'll tell you plainly which option fits, and when it's better to wait.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card" data-service="botox">
+                    <div class="service-card mobile-nav-target" id="service-botox" data-service="botox">
                         <div class="service-icon"><i class="fas fa-face-smile"></i></div>
                         <h3>Botox</h3>
                         <p>Softens frown lines, forehead lines and crow's feet while keeping your expression natural.
                             Results typically last three to four months.</p><a href="booking.html?treatment=Botox"
                             class="service-link">Book Treatment <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="dermal-fillers">
+                    <div class="service-card mobile-nav-target" id="service-dermal-fillers" data-service="dermal-fillers">
                         <div class="service-icon"><i class="fas fa-droplet"></i></div>
                         <h3>Dermal Fillers</h3>
                         <p>Restore lost volume, define cheeks, chin and lips, and smooth deeper lines with carefully
@@ -187,7 +248,7 @@
                             href="booking.html?treatment=Filler" class="service-link">Book Treatment <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="thread-lifts">
+                    <div class="service-card mobile-nav-target" id="service-thread-lifts" data-service="thread-lifts">
                         <div class="service-icon"><i class="fas fa-scissors"></i></div>
                         <h3>Thread Lifting</h3>
                         <p>A non-surgical lift for mild to moderate sagging along the jawline, cheeks and neck.</p>
@@ -195,7 +256,7 @@
                             href="booking.html?treatment=Thread%20Lift" class="service-link">Book Treatment <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="biostimulators">
+                    <div class="service-card mobile-nav-target" id="service-biostimulators" data-service="biostimulators">
                         <div class="service-icon"><i class="fas fa-arrows-to-circle"></i></div>
                         <h3>Sculptra &amp; Radiesse Biostimulators</h3>
                         <p>Support your skin's natural collagen rebuilding so firmness and contour improve gradually and
@@ -206,7 +267,7 @@
                         <a href="booking.html?treatment=Biostimulator%20Treatments" class="service-link">Book Treatment
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="fat-dissolving">
+                    <div class="service-card mobile-nav-target" id="service-fat-dissolving" data-service="fat-dissolving">
                         <div class="service-icon"><i class="fas fa-compress"></i></div>
                         <h3>Fat Dissolving Injection</h3>
                         <p>Targets small, stubborn pockets of fat such as under the chin and along the jawline.</p>
@@ -219,11 +280,11 @@
                 <br>
                 <br>
                 <div class="section-header">
-                    <h2 id="minor-procedures" class="section-title">Hair, Body &amp; Minor Procedures</h2>
+                    <h2 id="minor-procedures" class="section-title"><a href="mole-body-minor-procedures.html">Hair, Body &amp; Minor Procedures</a></h2>
                     <p class="section-subtitle">Everyday concerns, treated with proper medical care.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card" data-service="hair-nails-diseases">
+                    <div class="service-card mobile-nav-target" id="service-hair-nails-diseases" data-service="hair-nails-diseases">
                         <div class="service-icon"><i class="fas fa-spa"></i></div>
                         <h3>PRP Scalp &amp; Hair Fall Treatment</h3>
                         <p>We look for the cause first, such as thyroid, nutrition or stress, and then support regrowth
@@ -231,7 +292,7 @@
                             href="booking.html?treatment=PRP%20Face%20%26%20Scalp" class="service-link">Book
                             Consultation <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="stretch-marks">
+                    <div class="service-card mobile-nav-target" id="service-stretch-marks" data-service="stretch-marks">
                         <div class="service-icon"><i class="fas fa-wave-square"></i></div>
                         <h3>Stretch Marks Treatment</h3>
                         <p>Personalized plans to soften the look of stretch marks and improve body skin texture.</p>
@@ -240,7 +301,7 @@
                         <a href="booking.html?treatment=Stretch%20Marks%20Treatment" class="service-link">Book Treatment
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="mole-removal">
+                    <div class="service-card mobile-nav-target" id="service-mole-removal" data-service="mole-removal">
                         <div class="service-icon"><i class="fas fa-circle-dot"></i></div>
                         <h3>Mole Removal</h3>
                         <p>Careful removal with attention to safety. Any unusual mole is assessed properly first.</p>
@@ -249,7 +310,7 @@
                         <a href="booking.html?treatment=Mole%20Removal" class="service-link">Book Treatment <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="skin-tags-removal">
+                    <div class="service-card mobile-nav-target" id="service-skin-tags-removal" data-service="skin-tags-removal">
                         <div class="service-icon"><i class="fas fa-tag"></i></div>
                         <h3>Skin Tags Removal</h3>
                         <p>Quick removal of skin tags on the neck, eyelids, underarms and other areas.</p>
@@ -257,7 +318,7 @@
                         <a href="booking.html?treatment=Skin%20Tags%20Removal" class="service-link">Book Treatment <i
                                 class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="service-card" data-service="antioxidant-injections">
+                    <div class="service-card mobile-nav-target" id="service-antioxidant-injections" data-service="antioxidant-injections">
                         <div class="service-icon"><i class="fas fa-syringe"></i></div>
                         <h3>Antioxidant Injections</h3>
                         <p>Antioxidant injections and drips that support skin radiance and general wellness.</p>
@@ -270,13 +331,13 @@
                 <br>
 
                 <div class="section-header">
-                    <h2 id="diabetes-services" class="section-title">Diabetes &amp; Weight Management Clinic</h2>
+                    <h2 id="diabetes-services" class="section-title"><a href="diabetes-weight-management.html">Diabetes &amp; Weight Management Clinic</a></h2>
                     <p class="section-subtitle">Skin, hair and weight are closely linked to blood sugar and hormones.
                         Dr. Ahmed Khalil, Diabetes Consultant and General Physician, offers clear, practical care for
                         the whole picture.</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card" data-service="diabetes">
+                    <div class="service-card mobile-nav-target" id="service-diabetes" data-service="diabetes">
                         <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
                         <h3>Diabetes &amp; Weight Management Clinic</h3>
                         <p>Dr. Ahmed Khalil offers clear, practical care for obesity treatment, blood sugar, blood
@@ -520,7 +581,10 @@
     <a href="https://wa.me/923164364811" target="_blank" rel="noopener noreferrer" class="whatsapp-float"><i
             class="fab fa-whatsapp"></i></a><button class="back-to-top" id="backToTop" aria-label="Back to top"><i
             class="fas fa-arrow-up"></i></button>
-    <script src="script.js?v=20261013-faq1" defer></script>
+    <script src="script.js?v=20261022-booking2" defer></script>
+    <script src="chatbot-knowledge.js?v=2" defer></script>
+    <script src="chatbot-engine.js?v=1" defer></script>
+    <script src="chatbot.js?v=1" defer></script>
 </body>
 
 </html>

@@ -47,6 +47,15 @@ body {
     overflow-x: hidden;
 }
 
+/* Unstyled links use the clinic palette; component-specific colors take priority. */
+:where(a[href]) {
+    color: var(--color-primary);
+}
+
+:where(a[href]:hover, a[href]:focus-visible) {
+    color: var(--color-primary-light);
+}
+
 /* Scrollbar ki styling */
 ::-webkit-scrollbar {
     width: 10px;
@@ -98,6 +107,11 @@ body {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.4s ease, visibility 0.4s ease;
+    animation: clinic-loader-exit 0.25s ease 1.2s forwards;
+}
+
+@keyframes clinic-loader-exit {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
 .loading-screen.hidden {

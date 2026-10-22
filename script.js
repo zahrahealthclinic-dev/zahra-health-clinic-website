@@ -2,7 +2,6 @@
 const navbar = document.getElementById('navbar');
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
 const scrollProgressBar = document.querySelector('.scroll-progress-bar');
 const loadingScreen = document.getElementById('loadingScreen');
 const backToTopBtn = document.getElementById('backToTop');
@@ -211,7 +210,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 260);
-    }, 280);
+    }, 120);
 });
 
 // ============================================
@@ -237,11 +236,52 @@ window.addEventListener('scroll', () => {
 // ============================================
 // Hamburger menu ka control
 // ============================================
+const navDropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+let menuBodyOverflow = null;
+
+function closeNavDropdowns(exceptButton = null) {
+    navDropdownToggles.forEach(button => {
+        const submenu = document.getElementById(button.getAttribute('aria-controls'));
+        if (button === exceptButton || (submenu && exceptButton && submenu.contains(exceptButton))) return;
+        button.setAttribute('aria-expanded', 'false');
+        if (submenu) submenu.hidden = true;
+    });
+}
+
+function closeNavBranch(button) {
+    const submenu = document.getElementById(button.getAttribute('aria-controls'));
+    button.setAttribute('aria-expanded', 'false');
+    if (!submenu) return;
+    submenu.hidden = true;
+    submenu.querySelectorAll('.nav-dropdown-toggle').forEach(child => closeNavBranch(child));
+}
+
+function openNavDropdown(button) {
+    const submenu = document.getElementById(button.getAttribute('aria-controls'));
+    if (!submenu) return;
+    closeNavDropdowns(button);
+    button.setAttribute('aria-expanded', 'true');
+    submenu.hidden = false;
+    if (window.innerWidth > 768 && submenu.classList.contains('nav-flyout')) {
+        const group = button.parentElement;
+        group.classList.remove('nav-flyout-left');
+        if (submenu.getBoundingClientRect().right > window.innerWidth - 12) group.classList.add('nav-flyout-left');
+    }
+}
+
 function setMenuState(isOpen) {
     if (!hamburger || !navMenu) return;
     hamburger.classList.toggle('active', isOpen);
     navMenu.classList.toggle('active', isOpen);
     hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (isOpen) {
+        if (menuBodyOverflow === null) menuBodyOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+    } else {
+        if (menuBodyOverflow !== null) document.body.style.overflow = menuBodyOverflow;
+        menuBodyOverflow = null;
+        closeNavDropdowns();
+    }
 }
 
 if (hamburger) {
@@ -251,20 +291,85 @@ if (hamburger) {
     });
 }
 
-// Link click par mobile menu band karna
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        setMenuState(false);
+navDropdownToggles.forEach(button => {
+    button.addEventListener('click', () => {
+        const submenu = document.getElementById(button.getAttribute('aria-controls'));
+        if (!submenu) return;
+        if (button.getAttribute('aria-expanded') === 'true') closeNavBranch(button);
+        else openNavDropdown(button);
     });
+    button.parentElement.addEventListener('pointerenter', event => {
+        if (window.innerWidth > 768 && event.pointerType === 'mouse') openNavDropdown(button);
+    });
+    button.parentElement.addEventListener('pointerleave', event => {
+        if (window.innerWidth > 768 && event.pointerType === 'mouse') closeNavBranch(button);
+    });
+});
+
+// Dropdown links aur booking CTA click par bhi mobile menu band karna.
+if (navMenu) {
+    navMenu.addEventListener('click', event => {
+        if (event.target.closest('a')) setMenuState(false);
+    });
+    navMenu.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        event.preventDefault();
+        const openDropdown = Array.from(navDropdownToggles).reverse().find(button => button.getAttribute('aria-expanded') === 'true');
+        if (openDropdown) {
+            closeNavBranch(openDropdown);
+            openDropdown.focus();
+        } else {
+            setMenuState(false);
+            if (hamburger) hamburger.focus();
+        }
+    });
+    navMenu.addEventListener('focusout', event => {
+        if (!navMenu.contains(event.relatedTarget)) closeNavDropdowns();
+    });
+}
+
+document.addEventListener('click', event => {
+    if (navMenu && !navMenu.contains(event.target) && (!hamburger || !hamburger.contains(event.target))) closeNavDropdowns();
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) setMenuState(false);
 });
 
 // ============================================
 // Service detail modal
 // ============================================
+const treatmentMap = {
+    'dermal-fillers': 'Filler',
+    'botox': 'Botox',
+    'thread-lifts': 'Thread Lift',
+    'hydrafacial': 'HydraFacial',
+    'chemical-peels': 'Chemical Peels',
+    'exosomes': 'Exosomes',
+    'hands-feet-rejuvenation': 'Hands and Feet Rejuvenation',
+    'biostimulators': 'Biostimulator Treatments',
+    'fat-dissolving': 'Fat Dissolving Injection',
+    'rf-microneedling': 'PRP Face & Scalp',
+    'glutathione': 'PDRN and Polynucleotide',
+    'laser-treatment': 'Hair Laser Removal',
+    'skincare': 'CO2 Laser Resurfacing',
+    'diabetes': 'Consultation',
+    'hair-nails-diseases': 'PRP Face & Scalp',
+    'stretch-marks': 'Stretch Marks Treatment',
+    'mole-removal': 'Mole Removal',
+    'skin-tags-removal': 'Skin Tags Removal',
+    'antioxidant-injections': 'Antioxidant Injections',
+    'dermatology': 'Consultation'
+};
+
 function openServiceModal(serviceKey) {
     if (!serviceModal || !serviceDetailsData[serviceKey]) return;
 
     const data = serviceDetailsData[serviceKey];
+    const bookButton = document.getElementById('serviceModalBookBtn');
+    if (bookButton) {
+        bookButton.href = `booking.html?treatment=${encodeURIComponent(treatmentMap[serviceKey] || 'Consultation')}`;
+    }
     serviceModalTitle.textContent = data.title;
     serviceModalSubtitle.textContent = data.subtitle;
     serviceModalDescription.textContent = data.description;
@@ -305,28 +410,7 @@ document.querySelectorAll('.service-link').forEach(link => {
         const bookingSection = document.getElementById('booking');
         const bookingTreatmentSelect = document.getElementById('treatment');
 
-        const treatmentMap = {
-            'dermal-fillers': 'Filler',
-            'botox': 'Botox',
-            'thread-lifts': 'Thread Lift',
-            'hydrafacial': 'HydraFacial',
-            'chemical-peels': 'Chemical Peels',
-            'exosomes': 'Exosomes',
-            'hands-feet-rejuvenation': 'Hands and Feet Rejuvenation',
-            'biostimulators': 'Biostimulator Treatments',
-            'fat-dissolving': 'Fat Dissolving Injection',
-            'rf-microneedling': 'PRP Face & Scalp',
-            'glutathione': 'Profhilo',
-            'laser-treatment': 'Hair Laser Removal',
-            'skincare': 'CO2 Laser Resurfacing',
-            'diabetes': 'Consultation',
-            'hair-nails-diseases': 'Hair & Nails Diseases',
-            'stretch-marks': 'Stretch Marks Treatment',
-            'mole-removal': 'Mole Removal',
-            'skin-tags-removal': 'Skin Tags Removal',
-            'antioxidant-injections': 'Antioxidant Injections',
-            'dermatology': 'Consultation'
-        };
+
 
         if (bookingTreatmentSelect && key && treatmentMap[key]) {
             bookingTreatmentSelect.value = treatmentMap[key];

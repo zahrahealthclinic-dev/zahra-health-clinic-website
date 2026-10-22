@@ -1,0 +1,101 @@
+/* Homepage imagery only. Keep the booking form and shared page styles intact. */
+#services .home-care-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: clamp(24px, 5vw, 72px);
+    margin-bottom: 48px;
+    border-radius: 32px;
+    background: radial-gradient(ellipse at 82% 54%, #f3e5de 0%, transparent 64%);
+}
+
+#services .home-care-intro-copy {
+    min-width: 0;
+}
+
+#services .home-care-intro .section-header {
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+#services .home-care-intro .section-subtitle {
+    margin-left: 0;
+}
+
+#services .home-care-intro .care-focus-list {
+    grid-template-columns: 1fr;
+    margin-bottom: 0;
+}
+
+#services .home-skincare-visual {
+    min-width: 0;
+    align-self: stretch;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+}
+
+#services .home-skincare-visual img {
+    display: block;
+    width: min(100%, 410px);
+    height: auto;
+    max-height: 610px;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+#personalized-care {
+    background: linear-gradient(120deg, #f8f3ee, #f5e8e2 62%, #fff9f4);
+}
+
+#personalized-care .home-consultation-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 60px);
+}
+
+#personalized-care .home-consultation-visual {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 32px 90px 32px 32px;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 4%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 4%, #000 90%, transparent);
+}
+
+#personalized-care .home-consultation-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
+    object-position: 65% center;
+}
+
+@media (max-width: 900px) {
+    #services .home-care-intro,
+    #personalized-care .home-consultation-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    #services .home-care-intro {
+        background: radial-gradient(ellipse at 50% 74%, #f3e5de, transparent 70%);
+    }
+
+    #services .home-skincare-visual img {
+        width: min(100%, 330px);
+        max-height: 410px;
+    }
+
+    #personalized-care .home-consultation-visual {
+        border-radius: 24px 60px 24px 24px;
+    }
+
+    #personalized-care .home-consultation-visual img {
+        aspect-ratio: 3 / 2;
+    }
+}

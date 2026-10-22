@@ -1,0 +1,10 @@
+Generated with the built-in image_gen tool. Illustrative imagery only; these are
+not photographs of actual Zahra Health Clinic staff, patients or treatment results.
+
+Asset: skincare-portrait.png
+Prompt:
+Create a premium photorealistic cutout asset for a Pakistani aesthetic skin clinic website. Single adult South Asian woman age about 30, healthy natural skin texture, dark brown hair loosely tied back, modest ivory blouse with visible shoulders fully covered, gentle confident expression, one hand lightly resting alongside cheek, three-quarter waist-up portrait facing slightly left toward website copy. Warm soft rose-beige studio light matching burgundy #8e1f3f, cream #f8f3ee, blush #ead8cf website palette. Subject only on genuinely transparent background, clean natural hair alpha edges, no white background, no rectangular backdrop, no text, no logo, no graphic decorations, no doctor uniform. Portrait framing includes complete head and torso to waist, hands anatomically correct. High-end editorial skincare photography, natural appearance. This is a decorative generic model, not an actual clinic employee or testimonial. Save a usable PNG asset.
+
+Asset: consultation-scene.png
+Prompt:
+Photorealistic premium editorial image for a South Asian aesthetic clinic website, wide landscape composition about 3:2. A generic adult female South Asian clinician in a modest ivory coat talks with an adult South Asian woman patient, both in three-quarter view, a calm warm consultation, clinician holding a tablet naturally with both hands, no readable screen, no procedure or needles. Warm blush cream clinic with diffuse natural window light, very soft unfocused background with no hard white wall. Palette warm #f8f3ee cream, #ead8cf blush, subtle burgundy accents #8e1f3f. People occupy center and right; left edge mostly soft warm empty background suitable for gradient blending. Natural skin texture, modest professional clothing, comforting realistic mood, no exaggerated perfection, no writing, logos, labels or watermark. Do not resemble actual known doctors. Single photograph, not a website mockup or collage.

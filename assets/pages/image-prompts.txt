@@ -1,0 +1,17 @@
+Generated with the built-in image_gen tool. Generic illustrative scenes and models only; not actual named Zahra Health Clinic staff, patients or treatment outcomes.
+
+services-hero
+Transparent background: true
+Prompt:
+Use case: photorealistic-natural. Asset: portrait cutout for a skin clinic services hero. A generic adult South Asian female patient reclined comfortably in a blush treatment chair, wearing proper opaque protective eye shields, with only a clinician's ivory-sleeved forearm and gloved hand holding a generic nonbranded laser handpiece near her lower cheek; no needle, no blood, no visible laser beam. Frame the patient's complete head and shoulders, chair and handpiece together as one compact, elegant composition, vertical 2:3. Natural dark hair tied back, modest taupe top, calm relaxed expression. Realistic clinical anatomy and soft warm window lighting. Palette cream #f8f3ee, blush #ead8cf, restrained burgundy #8e1f3f. Genuinely transparent background around all subjects and chair, natural clean alpha edges. No white rectangular background, no scene behind the subject, no text, logos, watermark or website mockup. This is an illustrative treatment scene, not a real clinic patient or treatment outcome.
+
+reviews-hero
+Transparent background: true
+Prompt:
+Use case: photorealistic-natural. Asset: decorative portrait cutout for a skin clinic reviews page. Create an entirely new adult South Asian woman in her late thirties, shoulder-length softly waved dark hair, warm medium skin tone with realistic pores, understated makeup, friendly confident small smile and natural relaxed posture, three-quarter waist-up view. She wears a modest muted dusty-rose long-sleeved blouse and small gold earrings, both arms relaxed loosely crossed at waist, no hand resting on cheek. Editorial lifestyle skincare photograph, warm diffuse cream and blush lighting. Vertical 2:3 framing includes entire head and torso to waist. Truly transparent background, carefully preserved soft hair alpha edges, no white panel, text, stars, quotes, logos, clinic uniform or props. This is a generic illustrative model for a page hero, not a named testimonial author, not an actual patient and not a claimed treatment result. Match cream #f8f3ee and burgundy #8e1f3f website palette.
+
+why-us-hero
+Transparent background: false
+Prompt:
+Use case: photorealistic-natural. Asset: standalone landscape photograph for a clinic Why Choose Us page. A generic adult South Asian female clinician with hair neatly tied in a low bun, wearing an unbranded ivory medical coat over a muted plum blouse, explaining a treatment plan with an adult South Asian female visitor in a beige modest outfit across a light oak desk. Both women have distinct faces, natural skin texture, realistic hands, warm expressions and attentive eye contact. A single closed folder and generic tablet on desk, screen unreadable. Both heads fully visible centered in the middle 70 percent for flexible square or landscape crop. Warm softly blurred cream and rose-beige consultation room, diffuse natural daylight, restrained burgundy accents #8e1f3f, warm cream #f8f3ee. Image edges mostly softly blurred warm beige for seamless CSS gradient blending, no harsh white background. Premium realistic editorial photography, aspect ratio 3:2. No text, signage, brand names, logos, watermark, certificate writing, needles, website mockup or collage. Illustrative consultation, not a photograph of actual named clinic staff or patient.
+

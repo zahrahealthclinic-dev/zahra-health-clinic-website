@@ -13,9 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css?v=20261013-faq2">
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="styles.css?v=20261022-performance1">
+    <link rel="stylesheet" href="mobile-navigation.css?v=4">
+    <link rel="stylesheet" href="chatbot.css?v=2">
 </head>
 
 <body>
@@ -34,10 +39,62 @@
                 aria-controls="navMenu" aria-expanded="false"><span></span><span></span><span></span></button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="services.html" class="nav-link">Services</a></li>
-                <li><a href="doctors.html" class="nav-link">Doctors</a></li>
+                <li class="nav-dropdown">
+                    <a href="services.html" class="nav-link nav-dropdown-page">Services</a>
+                    <button class="nav-dropdown-toggle" type="button" aria-label="Toggle services submenu" aria-expanded="false" aria-controls="mobileServicesMenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                    <ul class="nav-dropdown-menu" id="mobileServicesMenu" hidden>
+                        <li class="nav-dropdown-group">
+                            <a href="aesthetic-dermatology.html">Aesthetic Dermatology</a>
+                            <button class="nav-dropdown-toggle nav-submenu-toggle" type="button" aria-label="Toggle Aesthetic Dermatology treatments" aria-expanded="false" aria-controls="services-aesthetic-submenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                            <ul class="nav-dropdown-menu nav-flyout" id="services-aesthetic-submenu" hidden>
+                                <li><a href="aesthetic-dermatology.html#service-laser-treatment">Laser Hair Removal (Soprano Titanium)</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-skincare">CO2 Laser Resurfacing</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-dermatology">Acne &amp; Scars Treatment</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-hydrafacial">HydraFacial</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-rf-microneedling">Microneedling &amp; PRP Face</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-glutathione">Skin Boosters: PDRN &amp; Polynucleotide</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-chemical-peels">Chemical Peels</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-exosomes">Exosomes</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-hands-feet-rejuvenation">Hands &amp; Feet Rejuvenation</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-botox">Botox</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-dermal-fillers">Dermal Fillers</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-thread-lifts">Thread Lifting</a></li>
+                                <li><a href="aesthetic-dermatology.html#service-biostimulators">Sculptra &amp; Radiesse Biostimulators</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-group">
+                            <a href="mole-body-minor-procedures.html">Mole, Body &amp; Minor Procedures</a>
+                            <button class="nav-dropdown-toggle nav-submenu-toggle" type="button" aria-label="Toggle Mole, Body &amp; Minor Procedures treatments" aria-expanded="false" aria-controls="services-minor-submenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                            <ul class="nav-dropdown-menu nav-flyout" id="services-minor-submenu" hidden>
+                                <li><a href="mole-body-minor-procedures.html#service-fat-dissolving">Fat Dissolving Injection</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-hair-nails-diseases">PRP Scalp &amp; Hair Fall Treatment</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-stretch-marks">Stretch Marks Treatment</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-mole-removal">Mole Removal</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-skin-tags-removal">Skin Tags Removal</a></li>
+                                <li><a href="mole-body-minor-procedures.html#service-antioxidant-injections">Antioxidant Injections</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-dropdown-group">
+                            <a href="diabetes-weight-management.html">Diabetes &amp; Weight Management</a>
+                            <button class="nav-dropdown-toggle nav-submenu-toggle" type="button" aria-label="Toggle Diabetes &amp; Weight Management treatments" aria-expanded="false" aria-controls="services-diabetes-submenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                            <ul class="nav-dropdown-menu nav-flyout" id="services-diabetes-submenu" hidden>
+                                <li><a href="diabetes-weight-management.html#service-diabetes">Diabetes &amp; Weight Management Clinic</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="doctors.html" class="nav-link nav-dropdown-page">Doctors</a>
+                    <button class="nav-dropdown-toggle" type="button" aria-label="Toggle doctors submenu" aria-expanded="false" aria-controls="mobileDoctorsMenu"><span class="nav-dropdown-chevron" aria-hidden="true"></span></button>
+                    <ul class="nav-dropdown-menu" id="mobileDoctorsMenu" hidden>
+                        <li><a href="doctors.html#dr-hina-wazir">Dr. Hina Wazir</a></li>
+                        <li><a href="doctors.html#dr-ahmed-khalil">Dr. Ahmed Khalil</a></li>
+                        <li><a href="doctors.html#dr-saher-fatima">Dr. Saher Fatima</a></li>
+                    </ul>
+                </li>
                 <li><a href="why-us.html" class="nav-link">Why Choose Us</a></li>
                 <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+                <li><a href="index.html#gallery" class="nav-link">Before &amp; After</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                 <li><a href="booking.html" class="nav-cta">Book Appointment</a></li>
             </ul>
@@ -142,7 +199,10 @@
     </footer><a href="https://wa.me/923164364811" target="_blank" rel="noopener noreferrer" class="whatsapp-float"><i
             class="fab fa-whatsapp"></i></a><button class="back-to-top" id="backToTop" aria-label="Back to top"><i
             class="fas fa-arrow-up"></i></button>
-    <script src="script.js?v=20261013-faq1" defer></script>
+    <script src="script.js?v=20261022-booking2" defer></script>
+    <script src="chatbot-knowledge.js?v=2" defer></script>
+    <script src="chatbot-engine.js?v=1" defer></script>
+    <script src="chatbot.js?v=1" defer></script>
 </body>
 
 </html>
