@@ -2905,8 +2905,6 @@ body {
         margin-bottom: 18px;
         object-fit: contain;
         object-position: left center;
-        background: rgba(255, 255, 255, 0.96);
-        border-radius: 10px;
     }
 
     .hero-background::before {
@@ -4514,6 +4512,8 @@ a[href^="https://wa.me/"]:not(.btn):not(.whatsapp-float):hover {
     width: 200px;
     max-width: 100%;
     height: auto;
+    background: transparent;
+    border-radius: 0;
     filter: brightness(0) invert(1);
 }
 
