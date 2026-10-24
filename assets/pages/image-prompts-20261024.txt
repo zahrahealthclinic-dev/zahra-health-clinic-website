@@ -1,0 +1,14 @@
+Generated with the built-in image_gen tool, transparent background enabled. Generic illustrative people and scenes only, not actual clinic staff or patients. Originals remain under the Codex generated_images folder; only optimized WebP deliverables are shipped.
+
+Shared prompt: photorealistic-natural editorial healthcare image for Zahra Health Clinic hero. South Asian adults, realistic skin texture, warm natural lighting, cream/blush/burgundy palette, complete heads and shoulders in half-length portrait composition. Genuinely transparent background with natural alpha edges; no white rectangular backdrop. No text, logos, watermarks, before/after comparisons or testimonial claims.
+
+Distinct subjects and output assets:
+- aesthetic-hero: elegant woman in blush modest blouse, gently touching her cheek, three-quarter portrait.
+- minor-hero: woman in cream blouse, looking at her cared-for hands; no procedures or instruments.
+- diabetes-hero: male physician in white coat/burgundy tie discussing a blank tablet with adult male patient.
+- doctors-hero: friendly woman physician in white coat over burgundy blouse, holding a closed cream folder, no badge/name.
+- booking-hero: woman in blush business clothing holding smartphone, screen facing away, appointment planning concept.
+- contact-hero: welcoming receptionist in burgundy blouse at pale cream reception desk with small plant, no signage.
+- faq-hero: woman physician listening attentively to woman patient in blush clothing, friendly consultation.
+
+Each new image has an 800px-wide WebP and 400px-wide -small.webp. Responsive srcset/sizes selects the appropriate candidate. Existing services/reviews/why-us imagery also has smaller mobile variants. Hero images load eagerly with async decoding and explicit dimensions; homepage and its lazy-loaded section imagery stay unchanged.
