@@ -2,8 +2,8 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const data = require('../chatbot-knowledge');
-const { createEngine } = require('../chatbot-engine');
+const data = require('../scripts/chatbot/chatbot-knowledge');
+const { createEngine } = require('../scripts/chatbot/chatbot-engine');
 const bot = createEngine(data);
 
 for (const [question, id] of [
@@ -71,11 +71,14 @@ test('Every page loads scripts in dependency order; no API call/storage in chatb
     const root = path.join(__dirname, '..');
     for (const file of fs.readdirSync(root).filter(f => f.endsWith('.html'))) {
         const html = fs.readFileSync(path.join(root, file), 'utf8');
-        assert.ok(html.indexOf('src="chatbot-knowledge.js') < html.indexOf('src="chatbot-engine.js'));
-        assert.ok(html.indexOf('src="chatbot-engine.js') < html.indexOf('src="chatbot.js'));
+        assert.ok(html.includes('src="scripts/chatbot/chatbot-knowledge.js'));
+        assert.ok(html.includes('src="scripts/chatbot/chatbot-engine.js'));
+        assert.ok(html.includes('src="scripts/chatbot/chatbot.js'));
+        assert.ok(html.indexOf('src="scripts/chatbot/chatbot-knowledge.js') < html.indexOf('src="scripts/chatbot/chatbot-engine.js'));
+        assert.ok(html.indexOf('src="scripts/chatbot/chatbot-engine.js') < html.indexOf('src="scripts/chatbot/chatbot.js'));
         assert.match(html, /chatbot\.css\?v=\d+/);
     }
     for (const file of ['chatbot-engine.js', 'chatbot.js']) {
-        assert.doesNotMatch(fs.readFileSync(path.join(root, file), 'utf8'), /fetch\(|XMLHttpRequest|localStorage|sessionStorage|eval\(/);
+        assert.doesNotMatch(fs.readFileSync(path.join(root, 'scripts/chatbot', file), 'utf8'), /fetch\(|XMLHttpRequest|localStorage|sessionStorage|eval\(/);
     }
 });

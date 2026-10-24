@@ -99,16 +99,16 @@ const serviceDetailsData = {
         downtime: 'Usually minimal'
     },
     'rf-microneedling': {
-        title: 'PRP Face & Scalp',
-        subtitle: 'Regenerative Platelet Therapy',
+        title: 'Microneedling & PRP Face',
+        subtitle: 'Skin Texture and Rejuvenation',
         icon: 'fa-vial',
-        description: 'Platelet-rich plasma treatment designed to support skin rejuvenation, improve texture, and boost scalp health for stronger-looking hair.',
-        idealFor: 'Dull skin, early hair thinning, scalp nourishment',
+        description: 'Microneedling stimulates collagen to smooth texture and scars. PRP made from your own blood supports repair and brings back glow.',
+        idealFor: 'Skin texture, scars and dull skin',
         duration: '35-55 minutes',
         downtime: 'Minimal, mild redness for a few hours'
     },
     glutathione: {
-        title: 'Skin Booster / PDRN / Biostimulator / Profhilo',
+        title: 'Skin Boosters: PDRN & Polynucleotide',
         subtitle: 'Advanced Injectable Skin Rejuvenation',
         icon: 'fa-syringe',
         description: 'Premium skin-boosting injectables for hydration, elasticity, collagen support, and naturally refreshed skin quality.',
@@ -144,11 +144,11 @@ const serviceDetailsData = {
         downtime: 'None'
     },
     'hair-nails-diseases': {
-        title: 'Hair & Nails Diseases',
-        subtitle: 'Scalp, Hair and Nail Care',
+        title: 'PRP Scalp & Hair Fall Treatment',
+        subtitle: 'Hair and Scalp Assessment',
         icon: 'fa-spa',
-        description: 'Evaluation and management of common hair and nail concerns including hair fall, scalp disorders, fungal nail disease, brittleness, and chronic irritation.',
-        idealFor: 'Hair loss, scalp issues, fungal nails, nail damage',
+        description: 'Hair fall assessment and support for regrowth with PRP and other therapies where they make sense.',
+        idealFor: 'Hair fall, thinning hair and scalp concerns',
         duration: '20-35 minutes',
         downtime: 'None'
     },
@@ -190,7 +190,7 @@ const serviceDetailsData = {
     },
     dermatology: {
         title: 'Dermatology Consultation',
-        subtitle: 'Specialist Clinical Assessment',
+        subtitle: 'Acne and Scar Assessment',
         icon: 'fa-user-md',
         description: 'Detailed skin assessment and treatment roadmap for acne, pigmentation, hair, and chronic skin conditions.',
         idealFor: 'Any skin, hair, or nail concern',
@@ -262,7 +262,7 @@ function openNavDropdown(button) {
     closeNavDropdowns(button);
     button.setAttribute('aria-expanded', 'true');
     submenu.hidden = false;
-    if (window.innerWidth > 768 && submenu.classList.contains('nav-flyout')) {
+    if (window.innerWidth > 1320 && submenu.classList.contains('nav-flyout')) {
         const group = button.parentElement;
         group.classList.remove('nav-flyout-left');
         if (submenu.getBoundingClientRect().right > window.innerWidth - 12) group.classList.add('nav-flyout-left');
@@ -299,10 +299,10 @@ navDropdownToggles.forEach(button => {
         else openNavDropdown(button);
     });
     button.parentElement.addEventListener('pointerenter', event => {
-        if (window.innerWidth > 768 && event.pointerType === 'mouse') openNavDropdown(button);
+        if (window.innerWidth > 1320 && event.pointerType === 'mouse') openNavDropdown(button);
     });
     button.parentElement.addEventListener('pointerleave', event => {
-        if (window.innerWidth > 768 && event.pointerType === 'mouse') closeNavBranch(button);
+        if (window.innerWidth > 1320 && event.pointerType === 'mouse') closeNavBranch(button);
     });
 });
 
@@ -333,7 +333,7 @@ document.addEventListener('click', event => {
 });
 
 window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) setMenuState(false);
+    if (window.innerWidth > 1320) setMenuState(false);
 });
 
 // ============================================
@@ -362,17 +362,38 @@ const treatmentMap = {
     'dermatology': 'Consultation'
 };
 
-function openServiceModal(serviceKey) {
+let serviceModalTrigger = null;
+let serviceModalOverflow = '';
+const serviceModalInert = new Map();
+function setServiceModalBackgroundLocked(locked) {
+    if (!locked) {
+        serviceModalInert.forEach((value, element) => { element.inert = value; });
+        serviceModalInert.clear();
+        return;
+    }
+    for (let node = serviceModal; node && node !== document.body; node = node.parentElement) {
+        [...node.parentElement.children].forEach(sibling => {
+            if (sibling !== node && !serviceModalInert.has(sibling)) {
+                serviceModalInert.set(sibling, sibling.inert);
+                sibling.inert = true;
+            }
+        });
+    }
+}
+function openServiceModal(serviceKey, trigger = document.activeElement) {
     if (!serviceModal || !serviceDetailsData[serviceKey]) return;
 
     const data = serviceDetailsData[serviceKey];
+    const card = document.querySelector(`.service-card[data-service="${serviceKey}"]`);
+    serviceModalTrigger = trigger;
+    serviceModalOverflow = document.body.style.overflow;
     const bookButton = document.getElementById('serviceModalBookBtn');
     if (bookButton) {
         bookButton.href = `booking.html?treatment=${encodeURIComponent(treatmentMap[serviceKey] || 'Consultation')}`;
     }
-    serviceModalTitle.textContent = data.title;
+    serviceModalTitle.textContent = card ? card.querySelector('h3').textContent.trim() : data.title;
     serviceModalSubtitle.textContent = data.subtitle;
-    serviceModalDescription.textContent = data.description;
+    serviceModalDescription.textContent = card ? card.querySelector('p').textContent.replace(/\s+/g, ' ').trim() : data.description;
     serviceModalIdealFor.textContent = data.idealFor;
     serviceModalDuration.textContent = data.duration;
     serviceModalDowntime.textContent = data.downtime;
@@ -381,20 +402,34 @@ function openServiceModal(serviceKey) {
     serviceModal.classList.add('active');
     serviceModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    setServiceModalBackgroundLocked(true);
+    serviceModalClose.focus({ preventScroll: true });
 }
 
 function closeServiceModal() {
     if (!serviceModal) return;
     serviceModal.classList.remove('active');
     serviceModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    document.body.style.overflow = serviceModalOverflow;
+    setServiceModalBackgroundLocked(false);
+    if (serviceModalTrigger && serviceModalTrigger.isConnected) serviceModalTrigger.focus({ preventScroll: true });
 }
 
 document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', () => {
+    if (card.hasAttribute('data-service')) {
+        card.tabIndex = 0;
+        card.setAttribute('aria-haspopup', 'dialog');
+        card.addEventListener('keydown', event => {
+            if (event.target !== card || !['Enter', ' '].includes(event.key)) return;
+            event.preventDefault();
+            openServiceModal(card.getAttribute('data-service'), card);
+        });
+    }
+    card.addEventListener('click', event => {
+        if (event.target.closest('a, button')) return;
         const key = card.getAttribute('data-service');
         if (!key) return;
-        openServiceModal(key);
+        openServiceModal(key, card);
     });
 });
 
@@ -424,6 +459,18 @@ document.querySelectorAll('.service-link').forEach(link => {
         }
     });
 });
+
+if (serviceModal) {
+    serviceModal.addEventListener('keydown', event => {
+        if (event.key !== 'Tab') return;
+        const controls = [...serviceModal.querySelectorAll('button, a[href], input, select, textarea, [tabindex="0"]')]
+            .filter(element => !element.disabled && element.getClientRects().length);
+        const first = controls[0], last = controls[controls.length - 1];
+        if (!first) return;
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    });
+}
 
 if (serviceModalClose) {
     serviceModalClose.addEventListener('click', closeServiceModal);

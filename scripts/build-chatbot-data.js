@@ -132,5 +132,5 @@ const data = { phone, email, whatsapp: 'https://wa.me/923164364811', entries };
 const output = '// Generated from website content. Rebuild: node scripts/build-chatbot-data.js\n' +
     '(function(root) { const data = ' + JSON.stringify(data, null, 2) + ';\n' +
     'if (typeof module === "object" && module.exports) module.exports = data; else root.ZahraChatKnowledge = data;\n})(typeof globalThis !== "undefined" ? globalThis : this);\n';
-fs.writeFileSync(path.join(root, 'chatbot-knowledge.js'), output);
+fs.writeFileSync(path.join(root, 'scripts/chatbot/chatbot-knowledge.js'), output);
 console.log(`Built ${entries.length} clinic answers with ${entries.reduce((n, e) => n + e.aliases.length, 0)} question/topic aliases.`);

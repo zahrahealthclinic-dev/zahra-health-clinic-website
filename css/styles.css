@@ -4516,3 +4516,17 @@ a[href^="https://wa.me/"]:not(.btn):not(.whatsapp-float):hover {
     height: auto;
     filter: brightness(0) invert(1);
 }
+
+/* Keep narrow phone grids within their available content width. */
+@media (max-width: 480px) {
+    .testimonials-carousel, .timings-content { grid-template-columns: minmax(0, 1fr); }
+    .testimonial-card, .timing-card { min-width: 0; overflow-wrap: anywhere; }
+}
+/* Contact links retain readable contrast against the dark footer. */
+.footer .footer-section a[href^="tel:"],
+.footer .footer-section a[href^="mailto:"],
+.footer .footer-section a[href^="https://wa.me/"] { color: #f4cbd5; }
+.footer .footer-section a[href^="tel:"]:hover,
+.footer .footer-section a[href^="mailto:"]:hover,
+.footer .footer-section a[href^="https://wa.me/"]:hover { color: #fff; }
+.service-card[data-service]:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }

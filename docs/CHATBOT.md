@@ -13,8 +13,8 @@ node scripts/build-chatbot-data.js
 node --test tests/chatbot.test.js
 ```
 
-Commit the generated `chatbot-knowledge.js` with the website changes. Increment
-its `?v=` value on the eight HTML pages when publishing refreshed answers so
+Commit the generated `scripts/chatbot/chatbot-knowledge.js` with the website changes. Increment
+its `?v=` value on the eleven HTML pages when publishing refreshed answers so
 returning visitors receive the new file.
 
 The builder imports published FAQs, treatment cards, doctor profiles and contact
@@ -25,12 +25,12 @@ a misunderstood query.
 
 ## Files
 
-- `chatbot-knowledge.js`: generated website content and topic aliases.
-- `chatbot-engine.js`: matching, follow-ups and medical/unsupported handoff.
-- `chatbot.js`: welcome, chat UI, source links, clear/close interactions.
-- `chatbot.css`: theme, mobile layout and WhatsApp integration.
+- `scripts/chatbot/chatbot-knowledge.js`: generated website content and topic aliases.
+- `scripts/chatbot/chatbot-engine.js`: matching, follow-ups and medical/unsupported handoff.
+- `scripts/chatbot/chatbot.js`: welcome, chat UI, source links, clear/close interactions.
+- `css/chatbot.css`: theme, mobile layout and WhatsApp integration.
 
-The same clinic guide appears on all eight pages. Conversations reset on page
+The same clinic guide appears on all eleven pages. Conversations reset on page
 navigation or reload. It answers supported questions and wording variations;
 it cannot understand every possible question like an AI model. For unknown,
 personal medical, pricing/availability confirmations and unrelated questions it
