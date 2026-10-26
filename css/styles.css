@@ -3561,9 +3561,6 @@ body {
 /* Print ki styling */
 .reviews-page .testimonials-carousel {
     align-items: stretch;
-}
-
-.reviews-page .testimonials-carousel {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -4530,3 +4527,11 @@ a[href^="https://wa.me/"]:not(.btn):not(.whatsapp-float):hover {
 .footer .footer-section a[href^="mailto:"]:hover,
 .footer .footer-section a[href^="https://wa.me/"]:hover { color: #fff; }
 .service-card[data-service]:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 4px; }
+
+/* Initialized review carousels show exactly one card, including on mobile. */
+.testimonials-carousel.is-carousel {
+    grid-template-columns: minmax(0, 1fr);
+}
+.testimonials-carousel.is-carousel .testimonial-card[hidden] {
+    display: none;
+}

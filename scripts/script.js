@@ -639,50 +639,34 @@ if (bookingForm) {
 // ============================================
 // Testimonials carousel ka control
 // ============================================
-let currentTestimonial = 0;
-const testimonialCards = document.querySelectorAll('.testimonial-card');
-const totalTestimonials = testimonialCards.length;
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+// One review per click on every screen size. Keep navigation scoped to its carousel.
+document.querySelectorAll('.testimonials-carousel').forEach(carousel => {
+    const cards = Array.from(carousel.querySelectorAll('.testimonial-card'));
+    const controls = carousel.parentElement.querySelector('.carousel-controls');
+    if (!cards.length || !controls) return;
+    const previous = controls.querySelector('.prev');
+    const next = controls.querySelector('.next');
+    if (!previous || !next) return;
+    let current = 0;
+    carousel.classList.add('is-carousel');
+    carousel.setAttribute('aria-live', 'polite');
+    carousel.setAttribute('aria-atomic', 'true');
 
-function showTestimonial(index) {
-    testimonialCards.forEach((card, i) => {
-        if (i === index) {
-            card.style.display = 'block';
-            card.style.animation = 'fadeIn 0.5s ease';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
+    function showReview(index) {
+        current = (index + cards.length) % cards.length;
+        cards.forEach((card, i) => {
+            card.hidden = i !== current;
+        });
+    }
 
-function nextTestimonial() {
-    if (!totalTestimonials) return;
-    currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
-    showTestimonial(currentTestimonial);
-}
-
-function prevTestimonial() {
-    if (!totalTestimonials) return;
-    currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
-    showTestimonial(currentTestimonial);
-}
-
-// Mobile par sab reviews, desktop par carousel dikhana
-const isReviewsPage = Boolean(document.querySelector('.reviews-page'));
-if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
-if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
-if (window.innerWidth > 768 && !isReviewsPage) {
-    showTestimonial(0);
-
-    // Har 6 second baad testimonial badalna
-    setInterval(nextTestimonial, 6000);
-} else {
-    // Mobile par tamam testimonials dikhana
-    testimonialCards.forEach(card => {
-        card.style.display = 'block';
-    });
-}
+    previous.type = next.type = 'button';
+    previous.setAttribute('aria-label', 'Previous review');
+    next.setAttribute('aria-label', 'Next review');
+    previous.disabled = next.disabled = cards.length < 2;
+    previous.addEventListener('click', () => showReview(current - 1));
+    next.addEventListener('click', () => showReview(current + 1));
+    showReview(0);
+});
 
 // ============================================
 // FAQ accordion ka control
@@ -835,16 +819,6 @@ document.addEventListener('mousemove', (e) => {
         glow.style.opacity = '0';
     }
 });
-
-// ============================================
-// Performance behtar rakhna
-// ============================================
-// Zaroorat se zyada animations ko baad me chalana
-if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-        // Heavy animations yahan initialize hoti hain
-    });
-}
 
 // ============================================
 // Mazeed visual polish
@@ -1024,8 +998,3 @@ formInputs.forEach(input => {
         }
     });
 });
-
-// ============================================
-// Input validation aur formatting
-// ============================================
-// Gallery handlers neeche wale modal section me maujood hain

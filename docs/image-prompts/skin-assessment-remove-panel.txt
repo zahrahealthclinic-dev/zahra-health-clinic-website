@@ -1,0 +1,5 @@
+Mode: built-in image_gen edit, transparent background.
+Source: assets/home/skin-assessment.webp
+Output: assets/home/skin-assessment-v2.webp and skin-assessment-v2-small.webp
+
+Edit target: the supplied transparent portrait artwork. Remove completely the large lower-right frosted glass panel titled 'Natural Skin Treatment', its arrow, all four thumbnail pictures and 'View Recommendations' button. Reconstruct the woman's shoulder, upper chest and hand naturally in the vacated area. Preserve the exact same woman, face, expression, hair, pose, framing and composition. Preserve the upper 'Scan Your Face' label, left 'Moisture 75' label and face dotted scan graphics. Do not add any other labels or panels. Preserve genuine transparent background and clean soft edges, no white rectangle, no replacement background.

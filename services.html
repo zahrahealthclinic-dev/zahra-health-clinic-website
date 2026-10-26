@@ -21,8 +21,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="css/styles.css?v=20261025-footer-logo">
-    <link rel="stylesheet" href="css/page-images.css?v=3">
+    <link rel="stylesheet" href="css/styles.css?v=20261026-carousel">
+    <link rel="stylesheet" href="css/page-images.css?v=20261026-service-cards2">
     <link rel="stylesheet" href="css/mobile-navigation.css?v=20261024-review2">
     <link rel="stylesheet" href="css/chatbot.css?v=3">
 </head>
@@ -134,7 +134,7 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card mobile-nav-target" id="service-laser-treatment" data-service="laser-treatment">
-                        <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/laser-treatment-care.webp" alt="Laser treatment with protective eyewear" width="275" height="183" loading="lazy" decoding="async">
                         <h3>Laser Hair Removal (Soprano Titanium)</h3>
                         <p>Smooth skin without constant shaving or waxing. Our double-cooling laser keeps sessions
                             comfortable, and settings are chosen for darker skin tones.</p>
@@ -145,7 +145,7 @@
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-skincare" data-service="skincare">
-                        <div class="service-icon"><i class="fas fa-fire"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/fractional-co2-treatment.webp" alt="Fractional CO2 laser treatment with protective eye shields" width="549" height="559" loading="lazy" decoding="async">
                         <h3>CO2 Laser Resurfacing</h3>
                         <p>Fractional CO2 laser removes damaged layers and triggers fresh collagen, helping acne scars,
                             rough texture, large pores, fine lines and early skin laxity.</p>
@@ -156,7 +156,7 @@
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-dermatology" data-service="dermatology">
-                        <div class="service-icon"><i class="fas fa-user-md"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/acne-scar-laser-care.webp" alt="CO2 laser treatment for acne scars with protective eye shields" width="640" height="427" loading="lazy" decoding="async">
                         <h3>Acne &amp; Scars Treatment</h3>
                         <p>We treat active acne first, then plan the right scar approach - laser, microneedling, peels
                             or a combination - around your scar type.</p>
@@ -175,14 +175,14 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card mobile-nav-target" id="service-hydrafacial" data-service="hydrafacial">
-                        <div class="service-icon"><i class="fas fa-water"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/hydrafacial-care.webp" alt="HydraFacial skin care treatment" width="586" height="522" loading="lazy" decoding="async">
                         <h3>HydraFacial</h3>
                         <p>Deep cleansing, extraction and hydration for fresh, glowing skin. Suitable for tired, dull,
                             uneven or dehydrated skin.</p><a href="booking.html?treatment=HydraFacial"
                             class="service-link">Book Treatment <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-rf-microneedling" data-service="rf-microneedling">
-                        <div class="service-icon"><i class="fas fa-vial"></i></div>
+                        <div class="service-treatment-photo-pair"><img class="service-treatment-photo" src="assets/pages/treatments/microneedling-care.webp" alt="Microneedling treatment on the cheek" width="452" height="678" loading="lazy" decoding="async"><img class="service-treatment-photo" src="assets/pages/treatments/prp-face-care.webp" alt="Illustrative PRP face treatment" width="640" height="427" loading="lazy" decoding="async"></div>
                         <h3>Microneedling &amp; PRP Face</h3>
                         <p>Microneedling stimulates collagen to smooth texture and scars. PRP made from your own blood
                             supports repair and brings back glow.</p>
@@ -191,7 +191,7 @@
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-glutathione" data-service="glutathione">
-                        <div class="service-icon"><i class="fas fa-syringe"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/skin-booster-care.webp" alt="Illustrative facial injectable treatment" width="640" height="427" loading="lazy" decoding="async">
                         <h3>Skin Boosters: PDRN &amp; Polynucleotide</h3>
                         <p>Injectable boosters for deep hydration, elasticity and better skin quality, with a soft,
                             healthy finish.</p>
@@ -200,7 +200,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-chemical-peels" data-service="chemical-peels">
-                        <div class="service-icon"><i class="fas fa-flask"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/chemical-peels-care.webp" alt="Illustrative facial skin treatment" width="399" height="501" loading="lazy" decoding="async">
                         <h3>Chemical Peels</h3>
                         <p>Medical-grade peels for pigmentation, acne marks and rough texture, chosen by strength to
                             suit your skin.</p>
@@ -209,7 +209,7 @@
                             Treatment <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-exosomes" data-service="exosomes">
-                        <div class="service-icon"><i class="fas fa-dna"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/exosomes-treatment-clean.webp" alt="Illustrative facial injectable treatment" width="640" height="480" loading="lazy" decoding="async">
                         <h3>Exosomes</h3>
                         <p>A regenerative therapy that supports healing and glow, often paired with microneedling.</p>
                         <p><strong>Ideal for:</strong> Post-procedure recovery, dull or damaged skin.
@@ -219,7 +219,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-hands-feet-rejuvenation" data-service="hands-feet-rejuvenation">
-                        <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/hands-feet-care.webp" alt="Hands and feet rejuvenation treatment" width="447" height="447" loading="lazy" decoding="async">
                         <h3>Hands &amp; Feet Rejuvenation</h3>
                         <p>Improve texture, volume and tone so your hands and feet look as cared for as your face.</p>
                         <p><strong>Ideal for:</strong> Thin, crepey or pigmented skin. <strong>Downtime:</strong>
@@ -237,14 +237,14 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card mobile-nav-target" id="service-botox" data-service="botox">
-                        <div class="service-icon"><i class="fas fa-face-smile"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/injectable-treatment-care.webp" alt="Facial injectable treatment" width="452" height="678" loading="lazy" decoding="async">
                         <h3>Botox</h3>
                         <p>Softens frown lines, forehead lines and crow's feet while keeping your expression natural.
                             Results typically last three to four months.</p><a href="booking.html?treatment=Botox"
                             class="service-link">Book Treatment <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-dermal-fillers" data-service="dermal-fillers">
-                        <div class="service-icon"><i class="fas fa-droplet"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/facial-treatment-planning.webp" alt="Facial assessment and injectable treatment planning" width="554" height="554" loading="lazy" decoding="async">
                         <h3>Dermal Fillers</h3>
                         <p>Restore lost volume, define cheeks, chin and lips, and smooth deeper lines with carefully
                             placed filler. Results often last six to twelve months.</p><a
@@ -252,7 +252,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-thread-lifts" data-service="thread-lifts">
-                        <div class="service-icon"><i class="fas fa-scissors"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/thread-lifting-care.webp" alt="Thread lifting treatment" width="640" height="427" loading="lazy" decoding="async">
                         <h3>Thread Lifting</h3>
                         <p>A non-surgical lift for mild to moderate sagging along the jawline, cheeks and neck.</p>
                         <p><strong>Downtime:</strong> Some swelling or bruising for several days.</p><a
@@ -260,7 +260,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-biostimulators" data-service="biostimulators">
-                        <div class="service-icon"><i class="fas fa-arrows-to-circle"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/biostimulator-planning.webp" alt="Facial assessment and treatment planning" width="225" height="225" loading="lazy" decoding="async">
                         <h3>Sculptra &amp; Radiesse Biostimulators</h3>
                         <p>Support your skin's natural collagen rebuilding so firmness and contour improve gradually and
                             look natural.</p>
@@ -271,7 +271,7 @@
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-fat-dissolving" data-service="fat-dissolving">
-                        <div class="service-icon"><i class="fas fa-compress"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/fat-dissolving-care.webp" alt="Injectable treatment beneath the chin" width="547" height="365" loading="lazy" decoding="async">
                         <h3>Fat Dissolving Injection</h3>
                         <p>Targets small, stubborn pockets of fat such as under the chin and along the jawline.</p>
                         <p><strong>Ideal for:</strong> Small localised fat. <strong>Downtime:</strong> Swelling or
@@ -288,7 +288,7 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card mobile-nav-target" id="service-hair-nails-diseases" data-service="hair-nails-diseases">
-                        <div class="service-icon"><i class="fas fa-spa"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/prp-scalp-care.webp" alt="PRP scalp treatment for hair concerns" width="640" height="364" loading="lazy" decoding="async">
                         <h3>PRP Scalp &amp; Hair Fall Treatment</h3>
                         <p>We look for the cause first, such as thyroid, nutrition or stress, and then support regrowth
                             with PRP and other therapies where they make sense.</p><a
@@ -296,7 +296,7 @@
                             Consultation <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-stretch-marks" data-service="stretch-marks">
-                        <div class="service-icon"><i class="fas fa-wave-square"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/stretch-marks-care.webp" alt="Illustration of stretch marks on body skin" width="638" height="480" loading="lazy" decoding="async">
                         <h3>Stretch Marks Treatment</h3>
                         <p>Personalized plans to soften the look of stretch marks and improve body skin texture.</p>
                         <p><strong>Plan:</strong> Multiple sessions. <strong>Downtime:</strong> Depends on the method.
@@ -305,7 +305,7 @@
                             <i class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-mole-removal" data-service="mole-removal">
-                        <div class="service-icon"><i class="fas fa-circle-dot"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/mole-removal-care.webp" alt="Assessment and treatment of a mole" width="576" height="347" loading="lazy" decoding="async">
                         <h3>Mole Removal</h3>
                         <p>Careful removal with attention to safety. Any unusual mole is assessed properly first.</p>
                         <p><strong>Plan:</strong> Usually one visit. <strong>Downtime:</strong> Small wound heals over
@@ -314,7 +314,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-skin-tags-removal" data-service="skin-tags-removal">
-                        <div class="service-icon"><i class="fas fa-tag"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/skin-tags-care.webp" alt="Removal of a small skin growth" width="638" height="480" loading="lazy" decoding="async">
                         <h3>Skin Tags Removal</h3>
                         <p>Quick removal of skin tags on the neck, eyelids, underarms and other areas.</p>
                         <p><strong>Plan:</strong> Usually one visit. <strong>Downtime:</strong> Minimal.</p>
@@ -322,7 +322,7 @@
                                 class="fas fa-arrow-right"></i></a>
                     </div>
                     <div class="service-card mobile-nav-target" id="service-antioxidant-injections" data-service="antioxidant-injections">
-                        <div class="service-icon"><i class="fas fa-syringe"></i></div>
+                        <img class="service-treatment-photo" src="assets/pages/treatments/antioxidant-treatment-clean.webp" alt="Illustrative facial injectable treatment" width="640" height="480" loading="lazy" decoding="async">
                         <h3>Antioxidant Injections</h3>
                         <p>Antioxidant injections and drips that support skin radiance and general wellness.</p>
                         <p><strong>Plan:</strong> As advised. <strong>Downtime:</strong> None.</p>
@@ -341,7 +341,6 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card mobile-nav-target" id="service-diabetes" data-service="diabetes">
-                        <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
                         <h3>Diabetes &amp; Weight Management Clinic</h3>
                         <p>Dr. Ahmed Khalil offers clear, practical care for obesity treatment, blood sugar, blood
                             pressure, high cholesterol, diabetic foot and thyroid concerns.</p><a
@@ -587,7 +586,7 @@
     <a href="https://wa.me/923164364811" target="_blank" rel="noopener noreferrer" class="whatsapp-float"><i
             class="fab fa-whatsapp"></i></a><button class="back-to-top" id="backToTop" aria-label="Back to top"><i
             class="fas fa-arrow-up"></i></button>
-    <script src="scripts/script.js?v=20261024-review2" defer></script>
+    <script src="scripts/script.js?v=20261026-carousel" defer></script>
     <script src="scripts/chatbot/chatbot-knowledge.js?v=2" defer></script>
     <script src="scripts/chatbot/chatbot-engine.js?v=1" defer></script>
     <script src="scripts/chatbot/chatbot.js?v=2" defer></script>

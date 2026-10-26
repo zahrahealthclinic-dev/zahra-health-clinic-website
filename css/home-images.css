@@ -99,3 +99,28 @@
         aspect-ratio: 3 / 2;
     }
 }
+
+/* Keep all concern labels visible and fade only the bottom edge into the page. */
+#services .home-skincare-visual--concerns {
+    align-self: center;
+    -webkit-mask-image: linear-gradient(to bottom, #000 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 95%, transparent 100%);
+}
+#services .home-skincare-visual--concerns img {
+    width: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* The edited skin-scan artwork has its own transparent edge; show it uncropped. */
+#personalized-care .home-consultation-visual--skin-scan {
+    border-radius: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 95%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 95%, transparent 100%);
+    background: transparent;
+}
+#personalized-care .home-consultation-visual--skin-scan img {
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center;
+}
